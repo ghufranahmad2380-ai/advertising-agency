@@ -1,17 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
-import { brand, navigation } from '../data/site';
+import { contact, navigationTargets, sectionIds, whatsappUrl } from '../data/site';
+import { useLanguage } from '../i18n/LanguageContext';
 import { useActiveSection } from '../hooks/useActiveSection';
-import { ArrowIcon, AsteriskMark } from './ui/Icons';
+import { AsteriskMark, PhoneIcon, WhatsAppIcon } from './ui/Icons';
+import { LanguageSwitcher } from './ui/LanguageSwitcher';
 import './Header.css';
 
-const SECTION_IDS = ['top', 'about', 'services', 'gallery', 'contact'] as const;
-
 export function Header() {
+  const { t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const activeSection = useActiveSection(SECTION_IDS);
+  const activeSection = useActiveSection(sectionIds);
   const toggleRef = useRef<HTMLButtonElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
+
+  const navLabels: Record<(typeof sectionIds)[number], string> = {
+    top: t.nav.home,
+    about: t.nav.about,
+    products: t.nav.products,
+    services: t.nav.services,
+    contact: t.nav.contact,
+  };
+
+  const whatsappHref = whatsappUrl(t.common.whatsappMessage);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -75,23 +86,25 @@ export function Header() {
     };
   }, [menuOpen]);
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <>
       <header className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}>
         <div className="container site-header__inner">
-          <a className="brand" href="#top" aria-label={`${brand.name} — back to top`}>
+          <a className="brand" href="#top" aria-label={`${t.brand.name} — ${t.nav.home}`}>
             <span className="brand__mark" aria-hidden="true">
               <AsteriskMark />
             </span>
             <span className="brand__text">
-              <span className="brand__name">{brand.name}</span>
-              <span className="brand__discipline">{brand.discipline}</span>
+              <span className="brand__name">{t.brand.name}</span>
+              <span className="brand__discipline">{t.brand.discipline}</span>
             </span>
           </a>
 
-          <nav className="primary-nav" aria-label="Primary">
+          <nav className="primary-nav" aria-label={t.nav.primaryLabel}>
             <ul>
-              {navigation.map((item) => {
+              {navigationTargets.map((item) => {
                 const isActive = item.href === `#${activeSection}`;
                 return (
                   <li key={item.href}>
@@ -100,7 +113,7 @@ export function Header() {
                       href={item.href}
                       aria-current={isActive ? 'true' : undefined}
                     >
-                      {item.label}
+                      {navLabels[item.id]}
                     </a>
                   </li>
                 );
@@ -109,9 +122,16 @@ export function Header() {
           </nav>
 
           <div className="site-header__actions">
-            <a className="btn btn--primary site-header__cta" href="#contact">
-              Let’s Talk
-              <ArrowIcon />
+            <LanguageSwitcher />
+            <a
+              className="btn btn--primary site-header__cta"
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.nav.whatsappCta}
+            >
+              <WhatsAppIcon className="btn__icon" />
+              <span className="site-header__cta-label">{t.nav.whatsappCta}</span>
             </a>
             <button
               ref={toggleRef}
@@ -119,7 +139,7 @@ export function Header() {
               className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
               aria-expanded={menuOpen}
               aria-controls="mobile-navigation"
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? t.nav.closeMenu : t.nav.openMenu}
               onClick={() => setMenuOpen((open) => !open)}
             >
               <span className="menu-toggle__bar" />
@@ -135,19 +155,24 @@ export function Header() {
         className={`mobile-nav${menuOpen ? ' is-open' : ''}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Site menu"
+        aria-label={t.nav.mobileLabel}
+        aria-hidden={menuOpen ? undefined : true}
       >
         <div className="mobile-nav__inner">
-          <p className="mobile-nav__label">Navigation / 01</p>
-          <nav aria-label="Mobile">
+          <div className="mobile-nav__top">
+            <p className="mobile-nav__label">{t.nav.menuHeading}</p>
+            <LanguageSwitcher className="mobile-nav__lang" />
+          </div>
+
+          <nav aria-label={t.nav.mobileLabel}>
             <ul className="mobile-nav__list">
-              {navigation.map((item, index) => (
+              {navigationTargets.map((item, index) => (
                 <li key={item.href}>
-                  <a className="mobile-nav__link" href={item.href} onClick={() => setMenuOpen(false)}>
+                  <a className="mobile-nav__link" href={item.href} onClick={closeMenu}>
                     <span className="mobile-nav__index" aria-hidden="true">
-                      0{index + 1}
+                      {String(index + 1).padStart(2, '0')}
                     </span>
-                    {item.label}
+                    {navLabels[item.id]}
                   </a>
                 </li>
               ))}
@@ -155,16 +180,27 @@ export function Header() {
           </nav>
 
           <div className="mobile-nav__foot">
-            <a className="btn btn--primary btn--block" href="#contact" onClick={() => setMenuOpen(false)}>
-              Let’s Talk
-              <ArrowIcon />
+            <a
+              className="btn btn--primary btn--block"
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+            >
+              <WhatsAppIcon className="btn__icon" />
+              {t.nav.whatsappCta}
             </a>
-            <p className="mobile-nav__note">
-              {brand.phone} · {brand.email}
-            </p>
-            <p className="mobile-nav__note mobile-nav__note--quiet">
-              Design prototype — placeholder contact details
-            </p>
+            <a className="mobile-nav__contact" href={contact.phoneHref} onClick={closeMenu}>
+              <PhoneIcon className="mobile-nav__icon" />
+              <span dir="ltr">{contact.phoneDisplay}</span>
+            </a>
+            <a className="mobile-nav__contact" href={contact.emailHref} onClick={closeMenu}>
+              <span className="mobile-nav__icon" aria-hidden="true">
+                @
+              </span>
+              <span dir="ltr">{contact.email}</span>
+            </a>
+            <p className="mobile-nav__note">{t.brand.location}</p>
           </div>
         </div>
       </div>

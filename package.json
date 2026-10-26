@@ -1,9 +1,9 @@
 {
-  "name": "agency-concept-prototype",
+  "name": "gift-occasions-website",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
-  "description": "Design-phase prototype for an advertising, printing and promotional gifts agency.",
+  "description": "Bilingual English/Arabic website for Gift Occasions — advertising, printing and promotional gifts in Dammam, Saudi Arabia.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

@@ -1,58 +1,53 @@
 import { services } from '../data/site';
-import { ServiceArt } from './art/ServiceArt';
-import { ArrowIcon } from './ui/Icons';
+import { useLanguage } from '../i18n/LanguageContext';
+import { ArrowIcon, AsteriskMark } from './ui/Icons';
 import { Reveal } from './ui/Reveal';
 import './Services.css';
 
+/**
+ * The client will supply the final service copy. `services` in data/site.ts is
+ * intentionally empty for now; when entries are added this section renders them
+ * as cards without any layout changes. Until then it shows a neutral notice.
+ */
 export function Services() {
+  const { t, language } = useLanguage();
+
   return (
-    <section className="services section" id="services" aria-labelledby="services-title">
+    <section className="services section section--white" id="services" aria-labelledby="services-title">
       <div className="container">
         <Reveal className="services__head">
           <div>
-            <p className="eyebrow">02 / Capabilities</p>
-            <h2
-              className="section-title services__title"
-              id="services-title"
-              aria-label="What we can create."
-            >
-              What we
-              <br />
-              can create.
+            <p className="eyebrow">{t.services.eyebrow}</p>
+            <h2 className="section-title services__title" id="services-title">
+              {t.services.title}
             </h2>
           </div>
-          <p className="section-head__aside">
-            Six ways to put a brand into someone’s hands — from a single printed piece to a complete promotional kit.
-            Final scope to be confirmed with the studio.
-          </p>
         </Reveal>
 
-        <div className="services__grid">
-          {services.map((service, index) => (
-            <Reveal className="services__cell" key={service.id} delay={(index % 3) * 70}>
-              <article className="service-card">
-                <div className="service-card__media">
-                  <ServiceArt kind={service.art} />
-                  <span className="service-card__index" aria-hidden="true">
-                    {service.index}
-                  </span>
-                </div>
-                <div className="service-card__body">
-                  <h3 className="service-card__title">{service.title}</h3>
-                  <p className="service-card__copy">{service.description}</p>
-                  <a
-                    className="link-arrow service-card__link"
-                    href="#contact"
-                    aria-label={`Learn more about ${service.title}`}
-                  >
-                    Learn More
-                    <ArrowIcon />
-                  </a>
-                </div>
+        {services.length > 0 ? (
+          <div className="services__grid">
+            {services.map((service) => (
+              <article className="service-card" key={service.id}>
+                <h3 className="service-card__title">{service.title[language]}</h3>
+                <p className="service-card__copy">{service.description[language]}</p>
               </article>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <Reveal delay={60}>
+            <div className="services__placeholder">
+              <AsteriskMark className="services__placeholder-mark" />
+              <div className="services__placeholder-copy">
+                <h3 className="services__placeholder-title">{t.services.placeholderTitle}</h3>
+                <p className="services__placeholder-text">{t.services.placeholderText}</p>
+              </div>
+              <a className="btn btn--ghost services__placeholder-cta" href="#contact">
+                {t.services.cta}
+                <ArrowIcon />
+              </a>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );

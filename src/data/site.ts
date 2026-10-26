@@ -1,224 +1,157 @@
 /**
- * ---------------------------------------------------------------------------
- * SITE CONTENT — DESIGN PHASE ONLY
- * ---------------------------------------------------------------------------
- * Every value below is a placeholder. Replace the bracketed values with the
- * client's real details only when the final content is supplied.
+ * Verified business details and content references.
  *
- * Visuals are original SVG illustrations created for this prototype, not
- * photographs of completed client projects.
- * ---------------------------------------------------------------------------
+ * Everything in this file comes from the client's brief or from the source
+ * catalogues/PDFs in the project. No opening hours, reviews, statistics or
+ * product specifications are invented here.
  */
 
-export const brand = {
-  name: '[AGENCY NAME]',
-  nameNote: 'Temporary wordmark — client logo to follow',
-  discipline: 'Advertising · Print · Gifts',
-  description:
-    'A concept studio bringing customized products, creative printing and promotional ideas together in one place.',
-  phone: '[PHONE NUMBER]',
-  email: '[EMAIL ADDRESS]',
-  location: '[CITY, COUNTRY]',
-  social: '[SOCIAL MEDIA LINK]',
-  whatsappNote: 'WhatsApp destination to be configured before launch.',
+export const contact = {
+  phoneDisplay: '+966 56 465 6508',
+  phoneHref: 'tel:+966564656508',
+  whatsappNumber: '966564656508',
+  email: 'es.gift@yahoo.com',
+  emailHref: 'mailto:es.gift@yahoo.com',
+  mapsUrl: 'https://maps.app.goo.gl/DPiHqX73na2Ngkr8A?g_st=iw',
 } as const;
 
-export interface NavItem {
-  label: string;
+/** Builds a wa.me link; the message is URL-encoded exactly once. */
+export function whatsappUrl(message: string): string {
+  return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+export const cataloguePaths = {
+  products: '/catalogue/product-photos.pdf',
+  diaries: '/catalogue/diary-designs.pdf',
+  nameplates: '/catalogue/nameplate-stand.pdf',
+} as const;
+
+export const sectionIds = ['top', 'about', 'products', 'services', 'contact'] as const;
+
+export interface NavTarget {
+  id: (typeof sectionIds)[number];
   href: string;
 }
 
-export const navigation: NavItem[] = [
-  { label: 'Home', href: '#top' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
-];
+/** Navigation order is shared by the header, the mobile menu and the footer. */
+export const navigationTargets: NavTarget[] = sectionIds.map((id) => ({
+  id,
+  href: `#${id}`,
+}));
 
-export const capabilities = [
-  'Printing',
-  'Custom Gifts',
-  'Acrylic Work',
-  'Brand Promotion',
-  'Creative Solutions',
-] as const;
-
-export type ServiceArtKey = 'gifts' | 'printing' | 'acrylic' | 'merch' | 'branding' | 'displays';
-
-export interface Service {
-  id: string;
-  index: string;
-  title: string;
-  description: string;
-  art: ServiceArtKey;
-}
-
-export const services: Service[] = [
-  {
-    id: 'promotional-gifts',
-    index: '01',
-    title: 'Promotional Gifts',
-    description:
-      'Considered gift selections, branded and packed to feel like a genuine part of your identity — not an afterthought.',
-    art: 'gifts',
-  },
-  {
-    id: 'creative-printing',
-    index: '02',
-    title: 'Creative Printing',
-    description:
-      'Posters, packaging, stationery and print collateral developed with an eye for paper, finish and detail.',
-    art: 'printing',
-  },
-  {
-    id: 'acrylic-products',
-    index: '03',
-    title: 'Acrylic Products',
-    description:
-      'Cut, polished acrylic for awards, signage and display pieces — clean edges, precise type, considered mounting.',
-    art: 'acrylic',
-  },
-  {
-    id: 'custom-merchandise',
-    index: '04',
-    title: 'Custom Merchandise',
-    description:
-      'Apparel, totes and everyday objects customized around a brand system that people actually want to keep.',
-    art: 'merch',
-  },
-  {
-    id: 'corporate-branding',
-    index: '05',
-    title: 'Corporate Branding',
-    description:
-      'Identity applied across business cards, folders, desks and packaging so every touchpoint feels related.',
-    art: 'branding',
-  },
-  {
-    id: 'advertising-displays',
-    index: '06',
-    title: 'Advertising Displays',
-    description:
-      'Standees, banners and counter displays built for retail floors, events and launch moments.',
-    art: 'displays',
-  },
-];
-
-export const workCategories = [
-  'All',
-  'Promotional Products',
-  'Printing & Packaging',
-  'Acrylic Creations',
-  'Corporate Gifts',
-] as const;
-
-export type WorkCategory = (typeof workCategories)[number];
-export type WorkArtKey =
-  | 'giftSet'
-  | 'packaging'
-  | 'awards'
-  | 'posters'
-  | 'onboarding'
-  | 'signage'
-  | 'bottle'
-  | 'capsule';
-
-export interface WorkItem {
-  id: string;
-  title: string;
-  category: Exclude<WorkCategory, 'All'>;
-  discipline: string;
-  art: WorkArtKey;
-  ratio: 'portrait' | 'landscape' | 'square';
+export interface LocalizedImage {
+  src: string;
+  alt: { en: string; ar: string };
 }
 
 /**
- * Demonstration portfolio entries. These are sample compositions only and must
- * not be presented as completed client work.
+ * Ten photographs selected from the 117-page product catalogue.
+ * Each file is a processed crop of the original catalogue page, saved as an
+ * optimised JPEG in public/images/products/.
  */
-export const workItems: WorkItem[] = [
+export const productImages: LocalizedImage[] = [
   {
-    id: 'signature-gift-set',
-    title: 'Signature Gift Set',
-    category: 'Promotional Products',
-    discipline: 'Gift concept',
-    art: 'giftSet',
-    ratio: 'portrait',
+    src: '/images/products/branded-caps.jpg',
+    alt: {
+      en: 'A model wearing a branded cap beside a range of coloured caps',
+      ar: 'شخص يرتدي كابًا مخصصًا بجانب مجموعة من الكابات الملونة',
+    },
   },
   {
-    id: 'retail-packaging',
-    title: 'Retail Packaging Study',
-    category: 'Printing & Packaging',
-    discipline: 'Box study',
-    art: 'packaging',
-    ratio: 'landscape',
+    src: '/images/products/coffee-tumblers.jpg',
+    alt: {
+      en: 'White, black and blue coffee tumblers on a wooden table',
+      ar: 'أكواب قهوة بيضاء وسوداء وزرقاء على طاولة خشبية',
+    },
   },
   {
-    id: 'acrylic-awards',
-    title: 'Acrylic Awards Study',
-    category: 'Acrylic Creations',
-    discipline: 'Award objects',
-    art: 'awards',
-    ratio: 'portrait',
+    src: '/images/products/steel-mugs.jpg',
+    alt: {
+      en: 'Blue, black and white steel mugs with clear lids',
+      ar: 'أكواب ستيل زرقاء وسوداء وبيضاء بأغطية شفافة',
+    },
   },
   {
-    id: 'poster-series',
-    title: 'Poster Series Study',
-    category: 'Printing & Packaging',
-    discipline: 'Poster series',
-    art: 'posters',
-    ratio: 'landscape',
+    src: '/images/products/travel-mugs.jpg',
+    alt: {
+      en: 'Colourful travel mugs displayed on wooden shelves',
+      ar: 'أكواب سفر ملونة معروضة على أرفف خشبية',
+    },
   },
   {
-    id: 'onboarding-kit',
-    title: 'Onboarding Kit Study',
-    category: 'Corporate Gifts',
-    discipline: 'New-starter kit',
-    art: 'onboarding',
-    ratio: 'square',
+    src: '/images/products/glass-mugs.jpg',
+    alt: {
+      en: 'White mugs and colour-changing glass mugs on display shelves',
+      ar: 'أكواب بيضاء وأكواب زجاجية متغيرة اللون معروضة على أرفف',
+    },
   },
   {
-    id: 'reception-signage',
-    title: 'Reception Signage Study',
-    category: 'Acrylic Creations',
-    discipline: 'Reception sign',
-    art: 'signage',
-    ratio: 'landscape',
+    src: '/images/products/sports-bottles.jpg',
+    alt: {
+      en: 'Sports water bottles in six colours',
+      ar: 'زجاجات مياه رياضية بستة ألوان',
+    },
   },
   {
-    id: 'branded-bottle',
-    title: 'Branded Bottle Study',
-    category: 'Promotional Products',
-    discipline: 'Drinkware',
-    art: 'bottle',
-    ratio: 'portrait',
+    src: '/images/products/notebook-pen-sets.jpg',
+    alt: {
+      en: 'Notebook and pen sets with a grey cover and stacked colour options',
+      ar: 'أطقم دفتر وقلم بغلاف رمادي وخيارات ألوان متعددة',
+    },
   },
   {
-    id: 'merch-capsule',
-    title: 'Merch Capsule Study',
-    category: 'Corporate Gifts',
-    discipline: 'Apparel',
-    art: 'capsule',
-    ratio: 'square',
+    src: '/images/products/tote-bags.jpg',
+    alt: {
+      en: 'Printed non-woven tote bags in assorted colours',
+      ar: 'أكياس تسوق مطبوعة بألوان متعددة',
+    },
+  },
+  {
+    src: '/images/products/cotton-tote-bags.jpg',
+    alt: {
+      en: 'White and black cotton tote bags',
+      ar: 'حقائب قطنية بيضاء وسوداء',
+    },
+  },
+  {
+    src: '/images/products/lanyards.jpg',
+    alt: {
+      en: 'Branded lanyards in assorted colours',
+      ar: 'شرائط تعليق مخصصة بألوان متعددة',
+    },
   },
 ];
 
-export const aboutPillars = [
-  { index: 'A', title: 'Products', copy: 'Pieces people keep, use and remember.' },
-  { index: 'B', title: 'Print', copy: 'Paper, packaging and collateral with real craft.' },
-  { index: 'C', title: 'Promotion', copy: 'Ideas that put your brand in the right hands.' },
-];
+/** 30 unique diary designs extracted from the 10-page diary catalogue. */
+export const diaryDesignCount = 30;
+export const diaryDesigns: string[] = Array.from({ length: diaryDesignCount }, (_, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return `/images/diary-designs/diary-design-${number}.jpg`;
+});
 
-export const serviceOptions = [
-  'Promotional Gifts',
-  'Creative Printing',
-  'Acrylic Products',
-  'Custom Merchandise',
-  'Corporate Branding',
-  'Advertising Displays',
-  'Not sure yet',
-] as const;
+/** 26 unique desk nameplate photographs supplied in the project. */
+export const nameplateStandCount = 26;
+export const nameplateStands: string[] = Array.from({ length: nameplateStandCount }, (_, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return `/images/nameplate-stands/nameplate-stand-${number}.jpg`;
+});
 
-export const socialLabels = ['IG', 'LI', 'BE', 'FB'] as const;
+/**
+ * Services content is supplied separately by the client.
+ *
+ * Add entries here — the Services section renders them automatically once the
+ * array is populated and falls back to a neutral placeholder while it is empty.
+ * Example:
+ *   {
+ *     id: 'printing',
+ *     title: { en: 'Printing', ar: 'الطباعة' },
+ *     description: { en: '…', ar: '…' },
+ *   }
+ */
+export interface ServiceEntry {
+  id: string;
+  title: { en: string; ar: string };
+  description: { en: string; ar: string };
+}
 
+export const services: ServiceEntry[] = [];

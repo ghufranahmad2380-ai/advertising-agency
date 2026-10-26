@@ -1,35 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#F7F7F3" />
 
-    <!-- Temporary prototype metadata. Replace with the client's real details before launch. -->
-    <title>[AGENCY NAME] — Advertising, Printing &amp; Promotional Gifts | Design Concept</title>
+    <title>Gift Occasions | Advertising, Printing &amp; Promotional Gifts in Dammam</title>
     <meta
       name="description"
-      content="Design concept for a creative agency offering advertising, printing, acrylic work, customized promotional products and corporate gifts. Fictional demonstration content."
+      content="Gift Occasions | مناسبات الهدايا — advertising, printing and promotional gifts in Dammam, Saudi Arabia. Explore our product catalogue, diary designs and custom desk nameplate stands."
     />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="author" content="Gift Occasions" />
+    <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[AGENCY NAME] — Advertising, Printing &amp; Promotional Gifts" />
+    <meta property="og:title" content="Gift Occasions | Advertising, Printing &amp; Promotional Gifts" />
     <meta
       property="og:description"
-      content="Creative printing, customized gifts and advertising solutions. Design-phase website concept with sample visuals."
+      content="Customised gifts, printing and promotional products from Dammam, Saudi Arabia. Browse the product catalogue, diary designs and desk nameplate stands."
     />
+    <meta property="og:locale" content="en" />
+    <meta property="og:locale:alternate" content="ar" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5D90A'/%3E%3Cg fill='%23191919'%3E%3Crect x='14' y='5' width='4' height='22'/%3E%3Crect x='5' y='14' width='22' height='4'/%3E%3Crect x='14' y='5' width='4' height='22' transform='rotate(45 16 16)'/%3E%3Crect x='5' y='14' width='22' height='4' transform='rotate(45 16 16)'/%3E%3C/g%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5D90A'/%3E%3Cpath d='M16 7v18M7 16h18M9.5 9.5l13 13M22.5 9.5l-13 13' stroke='%23191919' stroke-width='3.4'/%3E%3C/svg%3E"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..500&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Cairo:wght@400..800&family=DM+Sans:opsz,wght@9..40,300..700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <!--
+      Apply the saved language before React mounts so the correct direction and
+      font are used on the very first paint (avoids an LTR/RTL flash).
+    -->
+    <script>
+      (function () {
+        var language = 'en';
+        try {
+          if (window.localStorage.getItem('gift-occasions:language') === 'ar') {
+            language = 'ar';
+          }
+        } catch (error) {
+          /* Storage unavailable — fall back to English. */
+        }
+        document.documentElement.lang = language;
+        document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,76 +1,62 @@
-import { aboutPillars } from '../data/site';
-import { AboutArt } from './art/AboutArt';
-import { ArrowIcon, AsteriskMark } from './ui/Icons';
+import { useLanguage } from '../i18n/LanguageContext';
 import { Reveal } from './ui/Reveal';
 import './About.css';
 
 export function About() {
-  return (
-    <section className="about section" id="about" aria-labelledby="about-title">
-      <div className="container about__inner">
-        <Reveal className="about__visual">
-          <div className="about__frame">
-            <AboutArt />
-          </div>
-          <div className="about__stamp" aria-hidden="true">
-            <AsteriskMark className="about__stamp-mark" />
-            <span>
-              Concept
-              <br />
-              studio
-            </span>
-          </div>
-          <p className="about__caption">Sample workspace still life / 02</p>
-        </Reveal>
+  const { t } = useLanguage();
 
+  return (
+    <section className="about section section--white" id="about" aria-labelledby="about-title">
+      <div className="container about__inner">
         <div className="about__body">
-          <Reveal delay={80}>
-            <p className="eyebrow">01 / About the concept</p>
-            <h2
-              className="section-title about__title"
-              id="about-title"
-              aria-label="Good ideas deserve great execution."
-            >
-              Good ideas
-              <br />
-              deserve great
-              <br />
-              <span className="accent-mark">execution.</span>
+          <Reveal>
+            <p className="eyebrow">{t.about.eyebrow}</p>
+            <h2 className="section-title about__title" id="about-title">
+              {t.about.title}
             </h2>
           </Reveal>
 
-          <Reveal delay={160}>
+          <Reveal delay={70}>
             <div className="about__copy">
-              <p>
-                This concept brings customized products, creative printing and promotional thinking into one studio — a
-                single place to develop an idea, produce it properly and put it in the hands of the people who matter.
-              </p>
-              <p>
-                The aim is simple: make a brand feel considered at every touchpoint, from a printed card to a reception
-                desk, without losing the personality that made it worth noticing in the first place.
-              </p>
+              {t.about.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+              ))}
             </div>
           </Reveal>
 
-          <Reveal delay={220}>
-            <ul className="about__pillars">
-              {aboutPillars.map((pillar) => (
-                <li className="pillar" key={pillar.index}>
-                  <span className="pillar__index">{pillar.index}</span>
-                  <span className="pillar__title">{pillar.title}</span>
-                  <span className="pillar__copy">{pillar.copy}</span>
-                </li>
-              ))}
-            </ul>
+          <Reveal delay={120}>
+            <p className="about__signature">{t.about.signature}</p>
           </Reveal>
 
-          <Reveal delay={280}>
-            <a className="btn btn--dark about__cta" href="#services">
-              Discover More
-              <ArrowIcon />
-            </a>
+          <Reveal delay={170}>
+            <dl className="about__facts">
+              {t.about.facts.map((fact) => (
+                <div className="about__fact" key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         </div>
+
+        <Reveal className="about__visual" delay={110}>
+          <figure className="about__figure">
+            <div className="about__media">
+              <img
+                className="about__image"
+                src="/images/site/gift-box-detail.jpg"
+                alt={t.about.imageAlt}
+                width={829}
+                height={620}
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="about__tag">{t.brand.location}</span>
+            </div>
+            <figcaption className="about__caption">{t.about.imageCaption}</figcaption>
+          </figure>
+        </Reveal>
       </div>
     </section>
   );

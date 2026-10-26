@@ -1,0 +1,203 @@
+.marquee {
+  --tile-w: clamp(248px, 27vw, 378px);
+  --tile-h: clamp(200px, 21vw, 288px);
+  --tile-gap: clamp(10px, 1.2vw, 18px);
+  --marquee-duration: 64s;
+
+  width: 100%;
+  overflow: hidden;
+  background: var(--white);
+  border-block: 1px solid var(--line);
+  padding-block: clamp(14px, 1.8vw, 22px);
+  position: relative;
+}
+
+.marquee__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+
+.marquee__group {
+  display: flex;
+  flex: none;
+  align-items: stretch;
+}
+
+.marquee__item {
+  flex: none;
+  width: var(--tile-w);
+  height: var(--tile-h);
+  margin-inline-end: var(--tile-gap);
+  overflow: hidden;
+  background: var(--gray);
+  position: relative;
+}
+
+.marquee__item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(25, 25, 25, 0.06);
+  pointer-events: none;
+}
+
+.marquee__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+}
+
+/* One full sequence = 50% of the duplicated track — seamless by construction. */
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/*
+ * In RTL the track is anchored to the inline-start edge (the right side), so it
+ * must travel towards +50% instead of -50%. Reusing the LTR keyframes with
+ * `animation-direction: reverse` would move the whole track out of the viewport
+ * and leave a blank strip.
+ */
+@keyframes marquee-scroll-rtl {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+[dir='rtl'] .marquee__track {
+  animation-name: marquee-scroll-rtl;
+}
+
+.marquee.is-reversed .marquee__track {
+  animation-direction: reverse;
+}
+
+.marquee.is-paused .marquee__track {
+  animation-play-state: paused;
+}
+
+@media (hover: hover) {
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+
+  .marquee.is-paused:hover .marquee__track {
+    animation-play-state: paused;
+  }
+}
+
+/* ---------------------------------------------------------- Controls */
+.marquee__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.marquee__hint {
+  max-width: 72ch;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.marquee__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.marquee__button {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-xs);
+  background: var(--white);
+  color: var(--ink);
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.marquee__button:hover {
+  background: var(--yellow-tint);
+  border-color: var(--ink);
+}
+
+.marquee__button[aria-pressed='true'] {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.marquee__icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------------------------------------------------------- Responsive */
+@media (max-width: 900px) {
+  .marquee {
+    --tile-w: clamp(230px, 38vw, 320px);
+    --tile-h: clamp(180px, 30vw, 240px);
+  }
+}
+
+@media (max-width: 600px) {
+  .marquee {
+    --tile-w: 72vw;
+    --tile-h: 52vw;
+    --marquee-duration: 46s;
+  }
+
+  .marquee__controls {
+    align-items: flex-start;
+  }
+
+  .marquee__hint {
+    font-size: 0.6875rem;
+    max-width: 40ch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    padding-block: 0;
+  }
+
+  .marquee__viewport {
+    overflow-x: auto;
+    padding-block: 14px;
+  }
+
+  .marquee__track,
+  [dir='rtl'] .marquee .marquee__track {
+    animation: none;
+  }
+
+  .marquee__group[aria-hidden='true'] {
+    display: none;
+  }
+
+  .marquee__controls {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Design-phase prototype. No backend, no deployment configuration.
+// Static front-end only: no backend, API routes or deployment configuration.
 export default defineConfig({
   plugins: [react()],
   server: {

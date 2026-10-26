@@ -1,50 +1,84 @@
 import { useRef, useState, type FormEvent } from 'react';
-import { brand, serviceOptions } from '../data/site';
-import { ArrowIcon, AsteriskMark, WhatsAppIcon } from './ui/Icons';
+import { contact, whatsappUrl } from '../data/site';
+import type { Dictionary } from '../i18n/dictionary';
+import { useLanguage } from '../i18n/LanguageContext';
+import { ArrowIcon, MailIcon, MapPinIcon, PhoneIcon, WhatsAppIcon } from './ui/Icons';
 import { Reveal } from './ui/Reveal';
 import './Contact.css';
 
 interface FormValues {
   name: string;
+  phone: string;
   email: string;
-  service: string;
-  details: string;
+  interest: string;
+  message: string;
 }
 
 type FieldName = keyof FormValues;
 type FormErrors = Partial<Record<FieldName, string>>;
 
-const EMPTY_FORM: FormValues = { name: '', email: '', service: '', details: '' };
+const EMPTY_FORM: FormValues = { name: '', phone: '', email: '', interest: '', message: '' };
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const PHONE_CHARS = /^[+\d\s().-]+$/;
 
-function validate(values: FormValues): FormErrors {
+function validate(values: FormValues, form: Dictionary['contact']['form']): FormErrors {
   const errors: FormErrors = {};
+  const digits = values.phone.replace(/\D/g, '');
 
   if (values.name.trim().length < 2) {
-    errors.name = 'Please enter your name.';
+    errors.name = form.errors.name;
+  }
+
+  if (!values.phone.trim()) {
+    errors.phone = form.errors.phone;
+  } else if (!PHONE_CHARS.test(values.phone.trim()) || digits.length < 7 || digits.length > 15) {
+    errors.phone = form.errors.phoneInvalid;
   }
 
   if (!EMAIL_PATTERN.test(values.email.trim())) {
-    errors.email = 'Please enter a valid email address.';
+    errors.email = form.errors.email;
   }
 
-  if (!values.service) {
-    errors.service = 'Please choose the service you are interested in.';
+  if (values.interest === '') {
+    errors.interest = form.errors.interest;
   }
 
-  if (values.details.trim().length < 10) {
-    errors.details = 'Please add a little more detail (at least 10 characters).';
+  if (values.message.trim().length < 10) {
+    errors.message = form.errors.message;
   }
 
   return errors;
 }
 
+function buildWhatsappMessage(
+  values: FormValues,
+  form: Dictionary['contact']['form'],
+): string {
+  const labels = form.whatsappMessage;
+  const interest = form.interest.options[Number(values.interest)] ?? '';
+
+  return [
+    labels.heading,
+    '',
+    `${labels.name}: ${values.name.trim()}`,
+    `${labels.phone}: ${values.phone.trim()}`,
+    `${labels.email}: ${values.email.trim()}`,
+    `${labels.interest}: ${interest}`,
+    '',
+    `${labels.message}:`,
+    values.message.trim(),
+  ].join('\n');
+}
+
 export function Contact() {
+  const { t } = useLanguage();
   const [values, setValues] = useState<FormValues>(EMPTY_FORM);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [whatsappNotice, setWhatsappNotice] = useState(false);
+  const [lastUrl, setLastUrl] = useState('');
   const formRef = useRef<HTMLFormElement | null>(null);
+
+  const formCopy = t.contact.form;
+  const whatsappHref = whatsappUrl(t.common.whatsappMessage);
 
   const updateField = (field: FieldName) => (event: { target: { value: string } }) => {
     setValues((current) => ({ ...current, [field]: event.target.value }));
@@ -59,15 +93,7 @@ export function Contact() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    /*
-     * DESIGN-PHASE ONLY.
-     * There is no backend here. Nothing is transmitted, stored or emailed.
-     * TODO before launch: connect this handler to the client's preferred form
-     * service or API, add spam protection, a privacy notice and real
-     * confirmation handling. Do not ship this handler as-is.
-     */
-
-    const nextErrors = validate(values);
+    const nextErrors = validate(values, formCopy);
     setErrors(nextErrors);
 
     const firstError = (Object.keys(nextErrors) as FieldName[])[0];
@@ -76,105 +102,114 @@ export function Contact() {
       return;
     }
 
-    setSubmitted(true);
+    const url = whatsappUrl(buildWhatsappMessage(values, formCopy));
+    setLastUrl(url);
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const resetForm = () => {
-    setValues(EMPTY_FORM);
-    setErrors({});
-    setSubmitted(false);
-  };
+  const methods = [
+    {
+      key: 'whatsapp',
+      icon: <WhatsAppIcon className="contact-card__icon" />,
+      label: t.contact.methods.whatsapp.label,
+      value: contact.phoneDisplay,
+      href: whatsappHref,
+      action: t.contact.methods.whatsapp.action,
+      hint: t.contact.methods.whatsapp.hint,
+      external: true,
+    },
+    {
+      key: 'phone',
+      icon: <PhoneIcon className="contact-card__icon" />,
+      label: t.contact.methods.phone.label,
+      value: contact.phoneDisplay,
+      href: contact.phoneHref,
+      action: t.contact.methods.phone.action,
+      hint: t.contact.methods.phone.hint,
+      external: false,
+    },
+    {
+      key: 'location',
+      icon: <MapPinIcon className="contact-card__icon" />,
+      label: t.contact.methods.location.label,
+      value: t.brand.location,
+      href: contact.mapsUrl,
+      action: t.contact.methods.location.action,
+      hint: t.contact.methods.location.hint,
+      external: true,
+    },
+    {
+      key: 'email',
+      icon: <MailIcon className="contact-card__icon" />,
+      label: t.contact.methods.email.label,
+      value: contact.email,
+      href: contact.emailHref,
+      action: t.contact.methods.email.action,
+      hint: t.contact.methods.email.hint,
+      external: false,
+    },
+  ];
 
   return (
-    <section className="contact section" id="contact" aria-labelledby="contact-title">
-      <div className="container contact__inner">
-        <Reveal className="contact__intro">
-          <p className="eyebrow">05 / Contact</p>
-          <h2
-            className="section-title contact__title"
-            id="contact-title"
-            aria-label="Have a project in mind?"
-          >
-            Have a project
-            <br />
-            in <span className="accent-mark">mind?</span>
+    <section className="contact section section--white" id="contact" aria-labelledby="contact-title">
+      <div className="container">
+        <Reveal className="contact__head">
+          <p className="eyebrow">{t.contact.eyebrow}</p>
+          <h2 className="section-title contact__title" id="contact-title">
+            {t.contact.title}
           </h2>
-          <p className="contact__lead">
-            Tell us what you are planning — a launch, a print run, a gift kit or something that does not have a name yet.
-            This concept site shows how the conversation could start.
-          </p>
-
-          <dl className="contact__details">
-            <div className="detail">
-              <dt>Studio</dt>
-              <dd>{brand.name}</dd>
-            </div>
-            <div className="detail">
-              <dt>Phone</dt>
-              <dd>{brand.phone}</dd>
-            </div>
-            <div className="detail">
-              <dt>Email</dt>
-              <dd>{brand.email}</dd>
-            </div>
-            <div className="detail">
-              <dt>Location</dt>
-              <dd>{brand.location}</dd>
-            </div>
-            <div className="detail">
-              <dt>Social</dt>
-              <dd>{brand.social}</dd>
-            </div>
-          </dl>
-
-          <div className="contact__whatsapp">
-            <button
-              type="button"
-              className="whatsapp"
-              onClick={() => setWhatsappNotice(true)}
-              aria-describedby="whatsapp-note"
-            >
-              <WhatsAppIcon className="whatsapp__icon" />
-              Chat on WhatsApp
-            </button>
-            <p
-              id="whatsapp-note"
-              className={`whatsapp__note${whatsappNotice ? ' is-visible' : ''}`}
-              role="status"
-            >
-              {whatsappNotice ? brand.whatsappNote : 'Visual placeholder — not linked to a phone number.'}
-            </p>
-          </div>
+          <p className="contact__lead">{t.contact.lead}</p>
         </Reveal>
 
-        <Reveal className="contact__form-wrap" delay={90}>
-          <div className="contact__form">
-            <div className="contact__form-head">
-              <span>Project brief / 01</span>
-              <span className="contact__form-badge">Prototype</span>
-            </div>
+        <div className="contact__inner">
+          <Reveal className="contact__info">
+            <ul className="contact__methods">
+              {methods.map((method) => (
+                <li className="contact-card" key={method.key}>
+                  <span className="contact-card__icon-wrap" aria-hidden="true">
+                    {method.icon}
+                  </span>
 
-            {submitted ? (
-              <div className="form-success" role="status">
-                <span className="form-success__icon" aria-hidden="true">
-                  <AsteriskMark />
-                </span>
-                <h3 className="form-success__title">Your brief stays in the prototype.</h3>
-                <p className="form-success__text">
-                  This form has no backend. Nothing was sent, stored or emailed — the layout is ready for the real
-                  submission flow to be connected.
-                </p>
-                <button type="button" className="btn btn--ghost" onClick={resetForm}>
-                  Send another inquiry
-                  <ArrowIcon />
-                </button>
+                  <div className="contact-card__body">
+                    <p className="contact-card__label">{method.label}</p>
+                    <p
+                      className="contact-card__value"
+                      dir={method.key === 'location' ? undefined : 'ltr'}
+                    >
+                      {method.value}
+                    </p>
+                    <p className="contact-card__hint">{method.hint}</p>
+                  </div>
+
+                  <a
+                    className="contact-card__action"
+                    href={method.href}
+                    {...(method.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {method.action}
+                    <ArrowIcon className="contact-card__arrow" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal className="contact__form" delay={90}>
+            <div className="contact__form-card">
+              <div className="contact__form-head">
+                <h3 className="contact__form-title">{formCopy.title}</h3>
+                <span className="contact__form-badge">{formCopy.badge}</span>
               </div>
-            ) : (
-              <form ref={formRef} className="form" onSubmit={handleSubmit} noValidate>
+              <p className="contact__required">{t.common.requiredFields}</p>
+
+              <form className="form" ref={formRef} onSubmit={handleSubmit} noValidate>
                 <div className="form__row">
                   <div className={`field${errors.name ? ' field--error' : ''}`}>
                     <label className="field__label" htmlFor="field-name">
-                      Name <span className="field__req">*</span>
+                      {formCopy.name.label}
+                      <span className="field__req" aria-hidden="true">
+                        *
+                      </span>
                     </label>
                     <input
                       id="field-name"
@@ -182,6 +217,7 @@ export function Contact() {
                       className="field__control"
                       type="text"
                       autoComplete="name"
+                      placeholder={formCopy.name.placeholder}
                       value={values.name}
                       onChange={updateField('name')}
                       aria-required="true"
@@ -195,16 +231,52 @@ export function Contact() {
                     )}
                   </div>
 
+                  <div className={`field${errors.phone ? ' field--error' : ''}`}>
+                    <label className="field__label" htmlFor="field-phone">
+                      {formCopy.phone.label}
+                      <span className="field__req" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <input
+                      id="field-phone"
+                      name="phone"
+                      className="field__control"
+                      type="tel"
+                      inputMode="tel"
+                      dir="ltr"
+                      autoComplete="tel"
+                      placeholder={formCopy.phone.placeholder}
+                      value={values.phone}
+                      onChange={updateField('phone')}
+                      aria-required="true"
+                      aria-invalid={Boolean(errors.phone)}
+                      aria-describedby={errors.phone ? 'error-phone' : undefined}
+                    />
+                    {errors.phone && (
+                      <p className="field__error" id="error-phone" role="alert">
+                        {errors.phone}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="form__row">
                   <div className={`field${errors.email ? ' field--error' : ''}`}>
                     <label className="field__label" htmlFor="field-email">
-                      Email <span className="field__req">*</span>
+                      {formCopy.email.label}
+                      <span className="field__req" aria-hidden="true">
+                        *
+                      </span>
                     </label>
                     <input
                       id="field-email"
                       name="email"
                       className="field__control"
                       type="email"
+                      dir="ltr"
                       autoComplete="email"
+                      placeholder={formCopy.email.placeholder}
                       value={values.email}
                       onChange={updateField('email')}
                       aria-required="true"
@@ -217,73 +289,86 @@ export function Contact() {
                       </p>
                     )}
                   </div>
+
+                  <div className={`field${errors.interest ? ' field--error' : ''}`}>
+                    <label className="field__label" htmlFor="field-interest">
+                      {formCopy.interest.label}
+                      <span className="field__req" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <select
+                      id="field-interest"
+                      name="interest"
+                      className="field__control field__control--select"
+                      value={values.interest}
+                      onChange={updateField('interest')}
+                      aria-required="true"
+                      aria-invalid={Boolean(errors.interest)}
+                      aria-describedby={errors.interest ? 'error-interest' : undefined}
+                    >
+                      <option value="">{formCopy.interest.placeholder}</option>
+                      {formCopy.interest.options.map((option, index) => (
+                        <option value={String(index)} key={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.interest && (
+                      <p className="field__error" id="error-interest" role="alert">
+                        {errors.interest}
+                      </p>
+                    )}
+                  </div>
                 </div>
 
-                <div className={`field${errors.service ? ' field--error' : ''}`}>
-                  <label className="field__label" htmlFor="field-service">
-                    Service of interest <span className="field__req">*</span>
-                  </label>
-                  <select
-                    id="field-service"
-                    name="service"
-                    className="field__control field__control--select"
-                    value={values.service}
-                    onChange={updateField('service')}
-                    aria-required="true"
-                    aria-invalid={Boolean(errors.service)}
-                    aria-describedby={errors.service ? 'error-service' : undefined}
-                  >
-                    <option value="">Select a service</option>
-                    {serviceOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.service && (
-                    <p className="field__error" id="error-service" role="alert">
-                      {errors.service}
-                    </p>
-                  )}
-                </div>
-
-                <div className={`field${errors.details ? ' field--error' : ''}`}>
-                  <label className="field__label" htmlFor="field-details">
-                    Project details <span className="field__req">*</span>
+                <div className={`field${errors.message ? ' field--error' : ''}`}>
+                  <label className="field__label" htmlFor="field-message">
+                    {formCopy.message.label}
+                    <span className="field__req" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <textarea
-                    id="field-details"
-                    name="details"
+                    id="field-message"
+                    name="message"
                     className="field__control field__control--textarea"
                     rows={4}
-                    placeholder="What are you making, who is it for, and when do you need it?"
-                    value={values.details}
-                    onChange={updateField('details')}
+                    placeholder={formCopy.message.placeholder}
+                    value={values.message}
+                    onChange={updateField('message')}
                     aria-required="true"
-                    aria-invalid={Boolean(errors.details)}
-                    aria-describedby={errors.details ? 'error-details' : undefined}
+                    aria-invalid={Boolean(errors.message)}
+                    aria-describedby={errors.message ? 'error-message' : undefined}
                   />
-                  {errors.details && (
-                    <p className="field__error" id="error-details" role="alert">
-                      {errors.details}
+                  {errors.message && (
+                    <p className="field__error" id="error-message" role="alert">
+                      {errors.message}
                     </p>
                   )}
                 </div>
 
                 <button type="submit" className="btn btn--primary btn--block form__submit">
-                  Send Inquiry
-                  <ArrowIcon />
+                  <WhatsAppIcon className="btn__icon" />
+                  {formCopy.submit}
                 </button>
 
-                <p className="form__note">
-                  Design prototype — this form does not send data. Real submission, email routing and spam protection
-                  must be configured before launch.
-                </p>
+                <p className="form__note">{formCopy.note}</p>
+
+                {lastUrl && (
+                  <p className="form__status" role="status">
+                    {formCopy.opened}{' '}
+                    <a href={lastUrl} target="_blank" rel="noopener noreferrer">
+                      {t.contact.methods.whatsapp.action}
+                    </a>
+                  </p>
+                )}
               </form>
-            )}
-          </div>
-        </Reveal>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
 }
+
