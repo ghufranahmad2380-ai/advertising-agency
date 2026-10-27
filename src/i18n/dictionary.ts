@@ -131,6 +131,10 @@ const en = {
   services: {
     eyebrow: '05 / Services',
     title: 'Our Services',
+    intro:
+      'From acrylic fabrication and promotional gifts to printing and laser services, these are the services we provide.',
+    inquire: 'Inquire on WhatsApp',
+    whatsappMessage: 'Hello Gift Occasions, I would like to inquire about {service}.',
     placeholderTitle: 'Service details coming soon',
     placeholderText:
       'We are preparing the full details of our services. In the meantime, contact us directly with any question.',
@@ -342,6 +346,10 @@ const ar: Dictionary = {
   services: {
     eyebrow: '05 / خدماتنا',
     title: 'خدماتنا',
+    intro:
+      'من تنفيذ المنحوتات الأكريليكية والهدايا الترويجية إلى الطباعة وخدمات الليزر، هذه هي الخدمات التي نقدّمها.',
+    inquire: 'استفسار عبر واتساب',
+    whatsappMessage: 'مرحبًا مناسبات الهدايا، أرغب في الاستفسار عن {service}.',
     placeholderTitle: 'تفاصيل الخدمات قريبًا',
     placeholderText:
       'نعمل على إعداد تفاصيل خدماتنا. في هذه الأثناء، تواصل معنا مباشرة لأي استفسار.',

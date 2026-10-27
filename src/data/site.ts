@@ -137,21 +137,92 @@ export const nameplateStands: string[] = Array.from({ length: nameplateStandCoun
 });
 
 /**
- * Services content is supplied separately by the client.
+ * The six services listed on the company's business card.
  *
- * Add entries here — the Services section renders them automatically once the
- * array is populated and falls back to a neutral placeholder while it is empty.
- * Example:
- *   {
- *     id: 'printing',
- *     title: { en: 'Printing', ar: 'الطباعة' },
- *     description: { en: '…', ar: '…' },
- *   }
+ * Descriptions are deliberately general: no machine models, material grades,
+ * turnaround times, guarantees or technical specifications are claimed.
  */
+export type ServiceIconKey = 'acrylic' | 'gifts' | 'dtf' | 'uv' | 'laser' | 'silkScreen';
+
 export interface ServiceEntry {
   id: string;
+  icon: ServiceIconKey;
   title: { en: string; ar: string };
   description: { en: string; ar: string };
 }
 
-export const services: ServiceEntry[] = [];
+export const services: ServiceEntry[] = [
+  {
+    id: 'acrylic-sculptures',
+    icon: 'acrylic',
+    title: {
+      en: 'Acrylic Sculptures & Fabrication',
+      ar: 'تنفيذ المنحوتات والأعمال الأكريليكية',
+    },
+    description: {
+      en: 'Custom acrylic pieces produced to order for gifts and display, with attention to detail and finish.',
+      ar: 'أعمال أكريليك مخصّصة تُنفّذ حسب الطلب للهدايا والعناصر العرضية، مع الاهتمام بالتفاصيل والتشطيب.',
+    },
+  },
+  {
+    id: 'promotional-gifts',
+    icon: 'gifts',
+    title: {
+      en: 'Promotional Gifts',
+      ar: 'الهدايا الترويجية',
+    },
+    description: {
+      en: 'Promotional gift items selected and customised to carry your brand identity.',
+      ar: 'هدايا ترويجية يتم اختيارها وتخصيصها لتعكس هوية علامتك التجارية.',
+    },
+  },
+  {
+    id: 'dtf-printing',
+    icon: 'dtf',
+    title: {
+      en: 'DTF Printing',
+      ar: 'طباعة DTF',
+    },
+    description: {
+      en: 'Direct-to-film printing for applying designs to suitable products.',
+      ar: 'طباعة DTF لتطبيق التصاميم على منتجات مناسبة.',
+    },
+  },
+  {
+    id: 'uv-printing',
+    icon: 'uv',
+    title: {
+      en: 'UV Printing',
+      ar: 'طباعة UV',
+    },
+    description: {
+      en: 'UV printing for applying designs directly to product surfaces.',
+      ar: 'طباعة UV لتطبيق التصاميم مباشرة على أسطح المنتجات.',
+    },
+  },
+  {
+    id: 'laser-services',
+    icon: 'laser',
+    title: {
+      en: 'Laser Services',
+      ar: 'خدمات الليزر',
+    },
+    description: {
+      en: 'Laser services for adding precise, personalised detail to selected products.',
+      ar: 'خدمات الليزر لإضافة تفاصيل دقيقة ومخصّصة إلى منتجات مختارة.',
+    },
+  },
+  {
+    id: 'silk-screen-printing',
+    icon: 'silkScreen',
+    title: {
+      en: 'Silk-Screen Printing',
+      ar: 'الطباعة بالشاشة الحريرية (السلك سكرين)',
+    },
+    description: {
+      en: 'Silk-screen printing for reproducing designs across selected products.',
+      ar: 'الطباعة بالشاشة الحريرية لإنتاج التصاميم على منتجات مختارة.',
+    },
+  },
+];
+

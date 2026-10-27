@@ -5,11 +5,11 @@ printing and promotional-gifts company in Dammam, Saudi Arabia.
 
 The site presents the company's About content, a continuously scrolling strip of
 selected product photographs, the complete product catalogue, all diary designs,
-all desk nameplate stand designs, a prepared Services section, verified contact
+all desk nameplate stand designs, the six bilingual services, verified contact
 details and a WhatsApp inquiry form.
 
-**Status:** implemented and verified locally. Not deployed and not pushed to
-GitHub.
+**Status:** implemented and verified locally, pushed to GitHub; not deployed to a
+hosting provider.
 
 ## Stack
 
@@ -87,19 +87,25 @@ src/
 
 ### Services section
 
-`services` in `src/data/site.ts` is intentionally an empty array. The section
-renders a neutral “Service details coming soon” notice until entries are added;
-adding entries automatically renders them as cards (no layout changes needed).
+The six services from the company's business card are defined in
+`src/data/site.ts` and rendered as bilingual cards with a distinct line icon and
+a service-specific WhatsApp inquiry link:
 
-```ts
-export const services: ServiceEntry[] = [
-  {
-    id: 'printing',
-    title: { en: 'Printing', ar: 'الطباعة' },
-    description: { en: '…', ar: '…' },
-  },
-];
-```
+1. Acrylic Sculptures & Fabrication — تنفيذ المنحوتات والأعمال الأكريليكية
+2. Promotional Gifts — الهدايا الترويجية
+3. DTF Printing — طباعة DTF
+4. UV Printing — طباعة UV
+5. Laser Services — خدمات الليزر
+6. Silk-Screen Printing — الطباعة بالشاشة الحريرية (السلك سكرين)
+
+Each card uses `whatsappUrl()` with a message that names the selected service,
+built from `services.whatsappMessage` in the dictionary. Descriptions stay
+deliberately general — no machine models, material grades, turnaround times or
+guarantees are claimed.
+
+To edit the list, update the `services` array (title, description, `icon` key).
+If the array is ever emptied, the section falls back to a neutral notice.
+
 
 ## Images and catalogues
 
@@ -146,6 +152,9 @@ assets; see [scripts/README.md](scripts/README.md).
   eager/high priority; all gallery images are lazy-loaded. Marquee images load
   eagerly so the strip is never blank.
 - No horizontal page scrolling at any tested width (320–1440 px).
+- Services: six cards verified in both languages with six distinct icons,
+  service-specific WhatsApp URLs and a 3 / 2 / 1 column responsive grid; no
+  overflow or clipped buttons from 320 to 1440 px.
 
 ## Verification performed
 
@@ -168,13 +177,12 @@ assets; see [scripts/README.md](scripts/README.md).
 
 ## Known limitations / before launch
 
-1. **Services copy** is still to be supplied (the section intentionally shows a
-   quiet placeholder).
-2. **Nameplate catalogue** is a compiled PDF because no original was provided.
-3. Fonts are loaded from Google Fonts; self-host if privacy/performance requires.
-4. No analytics, cookie banner or privacy policy is included — add if required.
-5. The form has no backend by design; WhatsApp is the delivery channel.
-6. Real-device and screen-reader passes are still recommended before launch.
+1. **Nameplate catalogue** is a compiled PDF because no original was provided.
+2. Fonts are loaded from Google Fonts; self-host if privacy/performance requires.
+3. No analytics, cookie banner or privacy policy is included — add if required.
+4. The form has no backend by design; WhatsApp is the delivery channel.
+5. Real-device and screen-reader passes are still recommended before launch.
 
-Not deployed. No changes were pushed to GitHub.
+Deployed: no. The source is pushed to GitHub; no hosting deployment has been
+configured.
 

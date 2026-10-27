@@ -3,8 +3,22 @@
 }
 
 .services__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 44px;
+  flex-wrap: wrap;
   padding-bottom: clamp(26px, 3vw, 40px);
   border-bottom: 1px solid var(--line);
+}
+
+.services__head-copy {
+  max-width: 640px;
+}
+
+.services__intro {
+  max-width: 44ch;
+  padding-bottom: 4px;
 }
 
 .services__title {
@@ -68,46 +82,208 @@
   padding-inline: 22px;
 }
 
-/* Populated state */
+/* ---------------------------------------------------------- Service cards */
 .services__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(14px, 1.8vw, 24px);
-  margin-top: clamp(26px, 3vw, 40px);
+  margin-top: clamp(28px, 3vw, 42px);
+}
+
+.services__cell {
+  display: flex;
 }
 
 .service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: clamp(20px, 2.2vw, 28px);
   border: 1px solid var(--line);
   background: var(--white);
+  overflow: hidden;
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-out);
+}
+
+[dir='rtl'] .service-card::before {
+  transform-origin: right center;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.service-card:hover::before,
+.service-card:focus-within::before {
+  transform: scaleX(1);
+}
+
+.service-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.service-card__icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  flex: none;
+  transition:
+    background-color 0.3s var(--ease),
+    border-color 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+
+.service-card:hover .service-card__icon-wrap,
+.service-card:focus-within .service-card__icon-wrap {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.service-card__icon {
+  width: 30px;
+  height: 30px;
+}
+
+.service-card__index {
+  padding-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  color: var(--muted);
 }
 
 .service-card__title {
+  margin-top: 20px;
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   font-weight: 800;
-  line-height: 1.3;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+[lang='ar'] .service-card__title {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: none;
 }
 
 .service-card__copy {
+  flex: 1;
   margin-top: 10px;
   font-size: 0.9rem;
   line-height: 1.7;
   color: var(--muted);
 }
 
-@media (max-width: 900px) {
+.service-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 11px 12px;
+  border: 1px solid var(--line-strong);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  transition:
+    background-color 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+[lang='ar'] .service-card__cta {
+  font-size: 0.875rem;
+}
+
+.service-card__cta:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.service-card__cta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-card__wa {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.service-card__arrow {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.service-card__cta:hover .icon-arrow {
+  transform: translateX(3px);
+}
+
+[dir='rtl'] .service-card__cta:hover .icon-arrow {
+  transform: scaleX(-1) translateX(3px);
+}
+
+@media (max-width: 1024px) {
   .services__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .services__grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .services__head {
+    align-items: flex-start;
   }
 
   .services__placeholder-cta {
     width: 100%;
   }
 }
+
+@media (hover: none) {
+  .service-card:hover {
+    transform: none;
+  }
+}
+
