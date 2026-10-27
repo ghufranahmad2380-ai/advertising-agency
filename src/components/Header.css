@@ -28,6 +28,14 @@
   flex: none;
 }
 
+.brand__logo {
+  display: block;
+  height: clamp(38px, 4.6vw, 58px);
+  width: auto;
+  max-width: min(228px, 58vw);
+  object-fit: contain;
+}
+
 .brand__mark {
   display: grid;
   place-items: center;

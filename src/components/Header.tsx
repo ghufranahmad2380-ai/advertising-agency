@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { contact, navigationTargets, sectionIds, whatsappUrl } from '../data/site';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useActiveSection } from '../hooks/useActiveSection';
-import { AsteriskMark, PhoneIcon, WhatsAppIcon } from './ui/Icons';
+import { PhoneIcon, WhatsAppIcon } from './ui/Icons';
 import { LanguageSwitcher } from './ui/LanguageSwitcher';
 import './Header.css';
 
@@ -93,13 +93,14 @@ export function Header() {
       <header className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}>
         <div className="container site-header__inner">
           <a className="brand" href="#top" aria-label={`${t.brand.name} — ${t.nav.home}`}>
-            <span className="brand__mark" aria-hidden="true">
-              <AsteriskMark />
-            </span>
-            <span className="brand__text">
-              <span className="brand__name">{t.brand.name}</span>
-              <span className="brand__discipline">{t.brand.discipline}</span>
-            </span>
+            <img
+              className="brand__logo"
+              src="/images/site/gift-occasions-logo.png"
+              alt={t.brand.name}
+              width={720}
+              height={265}
+              decoding="async"
+            />
           </a>
 
           <nav className="primary-nav" aria-label={t.nav.primaryLabel}>
