@@ -96,11 +96,15 @@ export function Header() {
             <img
               className="brand__logo"
               src="/images/site/gift-occasions-logo.png"
-              alt={t.brand.name}
+              alt=""
               width={720}
-              height={265}
+              height={379}
               decoding="async"
             />
+            <span className="brand__text">
+              <span className="brand__name">{t.brand.name}</span>
+              <span className="brand__discipline">{t.brand.discipline}</span>
+            </span>
           </a>
 
           <nav className="primary-nav" aria-label={t.nav.primaryLabel}>
