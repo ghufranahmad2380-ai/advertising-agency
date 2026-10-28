@@ -98,6 +98,12 @@ const en = {
     pause: 'Pause motion',
     resume: 'Resume motion',
     reverse: 'Reverse direction',
+    printed: {
+      title: 'Printed & Branded Apparel',
+      intro:
+        'Printed apparel from our collection — polo shirts, T-shirts, a sports jersey, safety vests, flags and scarves.',
+      galleryLabel: 'Printed and branded apparel gallery',
+    },
     catalogue: {
       eyebrow: 'Product catalogue',
       title: 'Explore Our Full Catalogue',
@@ -313,6 +319,12 @@ const ar: Dictionary = {
     pause: 'إيقاف الحركة',
     resume: 'متابعة الحركة',
     reverse: 'عكس الاتجاه',
+    printed: {
+      title: 'الملابس المطبوعة والمخصّصة',
+      intro:
+        'ملابس مطبوعة من مجموعتنا — قمصان بولو وتي شيرتات وقميص رياضي وسترات سلامة وأعلام وأوشحة.',
+      galleryLabel: 'معرض الملابس المطبوعة والمخصّصة',
+    },
     catalogue: {
       eyebrow: 'كتالوج المنتجات',
       title: 'استكشف الكتالوج الكامل',

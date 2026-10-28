@@ -122,6 +122,106 @@ export const productImages: LocalizedImage[] = [
   },
 ];
 
+/**
+ * Thirteen photographs supplied in `new photos/`, showing printed and branded
+ * apparel: polo shirts, T-shirts, a sports jersey, safety vests, Saudi flags and
+ * printed scarves. They are displayed directly under the product marquee, before
+ * the product catalogue panel.
+ */
+export const printedApparelImages: LocalizedImage[] = [
+  {
+    src: '/images/printed-apparel/restaurant-polo-shirts.jpg',
+    alt: {
+      en: 'Light blue polo shirts printed with the Al Nibras Restaurant logo on the chest and back',
+      ar: 'قميصان بولو أزرقان فاتحان مطبوع عليهما شعار مطعم النبراس على الصدر والظهر',
+    },
+  },
+  {
+    src: '/images/printed-apparel/security-polo-shirts.jpg',
+    alt: {
+      en: 'Black polo shirts printed with the UD Integrated Security logo on the chest and back',
+      ar: 'قميصان بولو أسودان مطبوع عليهما شعار UD Integrated Security على الصدر والظهر',
+    },
+  },
+  {
+    src: '/images/printed-apparel/football-jersey.jpg',
+    alt: {
+      en: 'Back of a red sports jersey printed with the name Sudanista and the number 10',
+      ar: 'ظهر قميص رياضي أحمر مطبوع عليه اسم Sudanista والرقم 10',
+    },
+  },
+  {
+    src: '/images/printed-apparel/graduation-tshirt.jpg',
+    alt: {
+      en: 'White T-shirt printed with a graduation illustration and the text 2027 Senior',
+      ar: 'تي شيرت أبيض مطبوع عليه رسم تخرج وعبارة 2027 Senior',
+    },
+  },
+  {
+    src: '/images/printed-apparel/club-tshirt.jpg',
+    alt: {
+      en: 'White T-shirt printed with the Almuheet Club emblem',
+      ar: 'تي شيرت أبيض مطبوع عليه شعار نادي المحيط',
+    },
+  },
+  {
+    src: '/images/printed-apparel/safety-vest-design.jpg',
+    alt: {
+      en: 'Front and back design of a high-visibility safety vest branded for Faas Drilling',
+      ar: 'تصميم أمامي وخلفي لسترة سلامة عالية الوضوح تحمل شعار شركة فأس الحفر للمقاولات',
+    },
+  },
+  {
+    src: '/images/printed-apparel/safety-vest-hanger.jpg',
+    alt: {
+      en: 'Yellow and black high-visibility safety vest with pockets, held on a hanger',
+      ar: 'سترة سلامة عالية الوضوح باللونين الأصفر والأسود مع جيوب، معلقة على علاقة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/safety-vest-logo.jpg',
+    alt: {
+      en: 'Close-up of a high-visibility vest printed with the Green One Company logo',
+      ar: 'لقطة قريبة لسترة عالية الوضوح مطبوع عليها شعار شركة جرين وان العالمية المحدودة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/safety-vest-sample.jpg',
+    alt: {
+      en: 'White vest with reflective strips and a printed BMF company logo, held up as a sample',
+      ar: 'سترة بيضاء بشرائط عاكسة مطبوع عليها شعار شركة BMF، تُعرض كعينة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/saudi-flag.jpg',
+    alt: {
+      en: 'A printed Saudi flag held open in the shop',
+      ar: 'علم المملكة العربية السعودية مطبوع ويُعرض مفتوحًا داخل المعرض',
+    },
+  },
+  {
+    src: '/images/printed-apparel/saudi-flag-size-guide.jpg',
+    alt: {
+      en: 'Saudi flag print design marked with overall dimensions of 240 by 120 centimetres',
+      ar: 'تصميم طباعة علم السعودية مع تحديد الأبعاد الكلية 240 × 120 سم',
+    },
+  },
+  {
+    src: '/images/printed-apparel/printed-scarf.jpg',
+    alt: {
+      en: 'Black printed scarf with red Arabic calligraphy and gold lettering',
+      ar: 'وشاح أسود مطبوع بخط عربي أحمر وكتابات ذهبية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/national-day-scarf.jpg',
+    alt: {
+      en: 'Green Saudi National Day 96 scarf design with the WST logo and the national emblem',
+      ar: 'تصميم وشاح أخضر لليوم الوطني السعودي 96 يحمل شعار WST والشعار الوطني',
+    },
+  },
+];
+
 /** 30 unique diary designs extracted from the 10-page diary catalogue. */
 export const diaryDesignCount = 30;
 export const diaryDesigns: string[] = Array.from({ length: diaryDesignCount }, (_, index) => {

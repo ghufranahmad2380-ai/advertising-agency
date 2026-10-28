@@ -12,6 +12,23 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* Mixed aspect ratios: a column flow keeps every photograph uncropped. */
+.gallery--masonry {
+  display: block;
+  column-count: 3;
+  column-gap: clamp(10px, 1.2vw, 18px);
+}
+
+.gallery--masonry .gallery__item {
+  break-inside: avoid;
+  margin-block-end: clamp(10px, 1.2vw, 18px);
+}
+
+.gallery--masonry .gallery__image {
+  display: block;
+  height: auto;
+}
+
 .gallery__item {
   position: relative;
   overflow: hidden;
@@ -67,6 +84,10 @@
   .gallery--wide {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .gallery--masonry {
+    column-count: 2;
+  }
 }
 
 @media (max-width: 640px) {
@@ -76,6 +97,10 @@
 
   .gallery--wide {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gallery--masonry {
+    column-count: 1;
   }
 }
 

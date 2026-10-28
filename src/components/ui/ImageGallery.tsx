@@ -8,8 +8,11 @@ export interface GalleryImage {
 interface ImageGalleryProps {
   images: GalleryImage[];
   label: string;
-  /** `portrait` for diary covers, `wide` for the desk nameplate photographs. */
-  variant?: 'portrait' | 'wide';
+  /**
+   * `portrait` for diary covers, `wide` for the desk nameplate photographs and
+   * `masonry` for mixed-orientation photographs that must keep their full frame.
+   */
+  variant?: 'portrait' | 'wide' | 'masonry';
   numbered?: boolean;
 }
 

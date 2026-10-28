@@ -25,6 +25,42 @@
   padding-bottom: 4px;
 }
 
+/* ------------------------------------------- Printed & branded apparel block */
+.products__printed {
+  margin-block-start: clamp(40px, 4.8vw, 72px);
+}
+
+.products__printed-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 40px;
+  flex-wrap: wrap;
+  border-block-start: 1px solid var(--line);
+  padding-block-start: clamp(20px, 2.4vw, 32px);
+  padding-block-end: clamp(20px, 2.4vw, 32px);
+}
+
+.products__printed-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+[lang='ar'] .products__printed-title {
+  letter-spacing: 0;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1.4;
+}
+
+.products__printed-intro {
+  max-width: 46ch;
+  padding-block-end: 2px;
+}
+
 /* ---------------------------------------------------------- Catalogue panel */
 .catalogue-panel {
   position: relative;
@@ -102,6 +138,11 @@
 @media (max-width: 960px) {
   .products__head {
     align-items: flex-start;
+  }
+
+  .products__printed-head {
+    align-items: flex-start;
+    gap: 14px;
   }
 
   .catalogue-panel {
