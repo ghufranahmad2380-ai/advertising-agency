@@ -101,7 +101,7 @@ const en = {
     printed: {
       title: 'Printed & Branded Apparel',
       intro:
-        'Printed apparel from our collection — polo shirts, T-shirts, a sports jersey, safety vests, flags and scarves.',
+        'Printed apparel from our collection — polo shirts, a sports jersey, a safety vest, a flag print design and a scarf.',
       galleryLabel: 'Printed and branded apparel gallery',
     },
     catalogue: {
@@ -322,7 +322,7 @@ const ar: Dictionary = {
     printed: {
       title: 'الملابس المطبوعة والمخصّصة',
       intro:
-        'ملابس مطبوعة من مجموعتنا — قمصان بولو وتي شيرتات وقميص رياضي وسترات سلامة وأعلام وأوشحة.',
+        'ملابس مطبوعة من مجموعتنا — قمصان بولو وقميص رياضي وسترة سلامة وتصميم علم ووشاح.',
       galleryLabel: 'معرض الملابس المطبوعة والمخصّصة',
     },
     catalogue: {

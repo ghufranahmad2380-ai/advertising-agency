@@ -123,10 +123,10 @@ export const productImages: LocalizedImage[] = [
 ];
 
 /**
- * Eight photographs supplied in `new photos/`, showing printed and branded
- * apparel: polo shirts, T-shirts, a sports jersey, a safety vest, a Saudi flag
- * print design and a National Day scarf. They are displayed directly under the
- * product marquee, before the product catalogue panel.
+ * Six photographs supplied in `new photos/`, showing printed and branded
+ * apparel: polo shirts, a sports jersey, a safety vest, a Saudi flag print
+ * design and a National Day scarf. They are displayed directly under the product
+ * marquee, before the product catalogue panel.
  */
 export const printedApparelImages: LocalizedImage[] = [
   {
@@ -148,20 +148,6 @@ export const printedApparelImages: LocalizedImage[] = [
     alt: {
       en: 'Back of a red sports jersey printed with the name Sudanista and the number 10',
       ar: 'ظهر قميص رياضي أحمر مطبوع عليه اسم Sudanista والرقم 10',
-    },
-  },
-  {
-    src: '/images/printed-apparel/graduation-tshirt.jpg',
-    alt: {
-      en: 'White T-shirt printed with a graduation illustration and the text 2027 Senior',
-      ar: 'تي شيرت أبيض مطبوع عليه رسم تخرج وعبارة 2027 Senior',
-    },
-  },
-  {
-    src: '/images/printed-apparel/club-tshirt.jpg',
-    alt: {
-      en: 'White T-shirt printed with the Almuheet Club emblem',
-      ar: 'تي شيرت أبيض مطبوع عليه شعار نادي المحيط',
     },
   },
   {
