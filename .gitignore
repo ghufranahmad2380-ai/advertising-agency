@@ -8,6 +8,8 @@ dist-ssr/
 # local logs and tooling artefacts
 *.log
 .preview/
+__pycache__/
+*.pyc
 .env
 .env.*
 !.env.example

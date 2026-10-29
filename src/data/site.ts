@@ -123,10 +123,11 @@ export const productImages: LocalizedImage[] = [
 ];
 
 /**
- * Six photographs supplied in `new photos/`, showing printed and branded
- * apparel: polo shirts, a sports jersey, a safety vest, a Saudi flag print
- * design and a National Day scarf. They are displayed directly under the product
- * marquee, before the product catalogue panel.
+ * Twenty-nine photographs supplied in `new photos/` and `new photos 2/`, showing
+ * print, branding and promotional work: printed apparel, safety vests, national-day
+ * flags and banners, tote bags, awards, notebooks, keychains, tech gifts and print
+ * displays. They are displayed directly under the product marquee, before the
+ * product catalogue panel.
  */
 export const printedApparelImages: LocalizedImage[] = [
   {
@@ -169,6 +170,167 @@ export const printedApparelImages: LocalizedImage[] = [
     alt: {
       en: 'Green Saudi National Day 96 scarf design with the WST logo and the national emblem',
       ar: 'تصميم وشاح أخضر لليوم الوطني السعودي 96 يحمل شعار WST والشعار الوطني',
+    },
+  },
+  {
+    src: '/images/printed-apparel/bmf-safety-vests.jpg',
+    alt: {
+      en: 'White and navy safety vests printed with the BMF company logo and reflective strips, shown from the front and back',
+      ar: 'سترات سلامة بيضاء وكحلية مطبوع عليها شعار شركة BMF وشرائط عاكسة، تظهر من الأمام والخلف',
+    },
+  },
+  {
+    src: '/images/printed-apparel/green-one-safety-vest-design.jpg',
+    alt: {
+      en: 'Print design for a white safety vest carrying the Green One Company logo on the chest and back',
+      ar: 'تصميم طباعة لسترة سلامة بيضاء تحمل شعار شركة جرين وان على الصدر والظهر',
+    },
+  },
+  {
+    src: '/images/printed-apparel/orange-polo-shirt.jpg',
+    alt: {
+      en: 'Orange polo shirt printed with Arabic text on the chest and across the back above the number 2',
+      ar: 'قميص بولو برتقالي مطبوع عليه نص عربي على الصدر وعلى الظهر فوق الرقم 2',
+    },
+  },
+  {
+    src: '/images/printed-apparel/black-polo-shirt.jpg',
+    alt: {
+      en: 'Black polo shirt printed with a white and red Arabic calligraphy logo on the chest and back',
+      ar: 'قميص بولو أسود مطبوع عليه شعار بخط عربي أبيض وأحمر على الصدر والظهر',
+    },
+  },
+  {
+    src: '/images/printed-apparel/saudi-graduation-sash.jpg',
+    alt: {
+      en: 'Black graduation sash with gold printing, showing the Saudi emblem, the Khobar skyline and the words Kingdom of Saudi Arabia',
+      ar: 'وشاح تخرج أسود بطباعة ذهبية يظهر الشعار السعودي وأفق مدينة الخبر وعبارة المملكة العربية السعودية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/qadsiah-armband.jpg',
+    alt: {
+      en: 'Red armband with a black elastic strap, printed with the Qadsiah club crest in yellow',
+      ar: 'شريط ذراع أحمر بحزام مطاطي أسود مطبوع عليه شعار نادي القادسية باللون الأصفر',
+    },
+  },
+  {
+    src: '/images/printed-apparel/national-day-95-banners.jpg',
+    alt: {
+      en: 'Six vertical Saudi National Day 95 banners in different colours, printed with Arabic slogans and traditional patterns',
+      ar: 'ستة أعلام رأسية لليوم الوطني السعودي 95 بألوان مختلفة، مطبوع عليها شعارات عربية وزخارف تقليدية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/national-day-hand-flags.jpg',
+    alt: {
+      en: 'A stack of green Saudi National Day hand flags on white poles with gold tips',
+      ar: 'مجموعة أعلام يد خضراء لليوم الوطني السعودي على أعمدة بيضاء برؤوس ذهبية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/national-day-falcon-banner.jpg',
+    alt: {
+      en: 'Vertical Saudi National Day banner showing a falcon on its handler’s arm above traditional patterned panels',
+      ar: 'بانر رأسي لليوم الوطني السعودي يظهر صقرًا على يد مدربه فوق ألواح ذات زخارف تقليدية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/national-day-pin-badges.jpg',
+    alt: {
+      en: 'Six gold-framed pin badges with Saudi motifs — a dallah, a mabkhara, a palm tree, a rosette, a sword and a mountain — shown worn on thobes and abayas and flat',
+      ar: 'ستة دبابيس بإطار ذهبي تحمل رموزًا سعودية — دلة ومبخرة ونخلة وزخرفة وسيف وجبل — تُعرض على الثياب والعبايات ومسطحة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/printed-tote-bag.jpg',
+    alt: {
+      en: 'White printed tote bag carrying a gold calligraphy logo and Arabic text',
+      ar: 'حقيبة تسوق بيضاء مطبوعة بشعار خطّي ذهبي ونص عربي',
+    },
+  },
+  {
+    src: '/images/printed-apparel/green-travel-agency-tote-bag.jpg',
+    alt: {
+      en: 'Green printed tote bag with yellow Arabic calligraphy, a travel agency name and contact numbers',
+      ar: 'حقيبة تسوق خضراء مطبوعة بخط عربي أصفر واسم وكالة سفر وأرقام تواصل',
+    },
+  },
+  {
+    src: '/images/printed-apparel/crystal-awards.jpg',
+    alt: {
+      en: 'Three clear acrylic awards on wooden bases, each printed with a different company logo',
+      ar: 'ثلاث جوائز أكريليك شفافة على قواعد خشبية، مطبوع على كل منها شعار شركة مختلف',
+    },
+  },
+  {
+    src: '/images/printed-apparel/engraved-wooden-gift-box.jpg',
+    alt: {
+      en: 'Wooden gift box engraved in gold with the Saudi and Pakistani skylines and the years 2018 and 2026',
+      ar: 'صندوق هدايا خشبي منقوش بالذهبي بأفق السعودية وباكستان والعامَين 2018 و2026',
+    },
+  },
+  {
+    src: '/images/printed-apparel/wireless-charger.jpg',
+    alt: {
+      en: 'Round black wireless charger printed with a white star logo',
+      ar: 'شاحن لاسلكي أسود دائري مطبوع عليه شعار نجمة بيضاء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/usb-flash-drive.jpg',
+    alt: {
+      en: 'Grey USB flash drive with USB-A and USB-C connectors',
+      ar: 'ذاكرة USB رمادية بمنفذَي USB-A وUSB-C',
+    },
+  },
+  {
+    src: '/images/printed-apparel/metal-keychain.jpg',
+    alt: {
+      en: 'Silver metal keychain with a blank white insert, ready for printing',
+      ar: 'ميدالية مفاتيح معدنية فضية بحشوة بيضاء فارغة جاهزة للطباعة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/enamel-keychain.jpg',
+    alt: {
+      en: 'Silver keychain with a purple enamel border and an Arabic inscription on a white insert',
+      ar: 'ميدالية مفاتيح فضية بإطار من المينا البنفسجي ونقش عربي على حشوة بيضاء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/alpha-notebook-pen.jpg',
+    alt: {
+      en: 'Black notebook and black pen printed with the Alpha Learning & Training logo',
+      ar: 'دفتر أسود وقلم أسود مطبوع عليهما شعار Alpha Learning & Training',
+    },
+  },
+  {
+    src: '/images/printed-apparel/national-water-notebooks.jpg',
+    alt: {
+      en: 'Blue and black notebooks printed with the National Water Company and Alkhorayef Water & Power Technologies logos',
+      ar: 'دفتران أزرق وأسود مطبوع عليهما شعارا شركة المياه الوطنية وشركة الخريف لتقنية المياه والطاقة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/padel-tournament-backdrop.jpg',
+    alt: {
+      en: 'Large printed backdrop for the URD3D Padel Tournament at Padel Scope, Khobar–Dammam',
+      ar: 'خلفية مطبوعة كبيرة لبطولة URD3D للبادل في بادل سكوب بالخبر – الدمام',
+    },
+  },
+  {
+    src: '/images/printed-apparel/exhibition-counter-design.jpg',
+    alt: {
+      en: 'Design mockup of a printed exhibition counter and backdrop, marked with its measurements',
+      ar: 'تصميم تجريبي لمنصة عرض وخلفية مطبوعة مع بيان الأبعاد',
+    },
+  },
+  {
+    src: '/images/printed-apparel/breast-cancer-awareness-card.jpg',
+    alt: {
+      en: 'Pink breast cancer awareness card design with a ribbon, an October 2026 calendar and Arabic text',
+      ar: 'تصميم بطاقة توعوية وردية عن سرطان الثدي بشريط وتقويم أكتوبر 2026 ونص عربي',
     },
   },
 ];

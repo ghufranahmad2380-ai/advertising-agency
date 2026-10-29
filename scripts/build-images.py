@@ -5,10 +5,11 @@ Inputs (kept in the project root, outside public/):
   - "diary designs.pdf"      Diary design catalogue, 10 pages
   - "nameplate stand/"       28 JPEG photographs (26 unique after de-duplication)
   - "new photos/"            WhatsApp photographs of printed apparel and print work
+  - "new photos 2/"          further photographs of print, branding and promo work
 
 Outputs:
   - public/images/products/*.jpg         10 selected product photographs (crops)
-  - public/images/printed-apparel/*.jpg  6 printed apparel photographs
+  - public/images/printed-apparel/*.jpg  29 printed / branded product photographs
   - public/images/diary-designs/*.jpg    every unique diary design (30)
   - public/images/nameplate-stands/*.jpg all unique nameplate photographs (26)
   - public/images/site/*.jpg             hero / about / diary section imagery
@@ -28,6 +29,7 @@ PRODUCT_PDF = os.path.join(ROOT, "product pdf.pdf")
 DIARY_PDF = os.path.join(ROOT, "diary designs.pdf")
 NAMEPLATE_DIR = os.path.join(ROOT, "nameplate stand")
 NEW_PHOTOS_DIR = os.path.join(ROOT, "new photos")
+NEW_PHOTOS_2_DIR = os.path.join(ROOT, "new photos 2")
 
 # (PDF page number, crop box in source pixels, output slug)
 PRODUCT_CROPS = [
@@ -54,6 +56,35 @@ PRINTED_PHOTOS = [
     ("WhatsApp Image 2026-10-28 at 6.50.23 PM (1).jpeg", "safety-vest-design"),
     ("WhatsApp Image 2026-10-28 at 6.50.23 PM.jpeg", "saudi-flag-size-guide"),
     ("WhatsApp Image 2026-10-28 at 6.50.23 PM (7).jpeg", "national-day-scarf"),
+]
+
+# (source file name in "new photos 2/", output slug)
+PRINTED_PHOTOS_2 = [
+    ("WhatsApp Image 2026-10-29 at 9.13.17 PM.jpeg", "bmf-safety-vests"),
+    ("WhatsApp Image 2026-10-29 at 9.19.12 PM.jpeg", "green-one-safety-vest-design"),
+    ("WhatsApp Image 2026-10-29 at 9.19.12 PM (1).jpeg", "orange-polo-shirt"),
+    ("WhatsApp Image 2026-10-29 at 9.19.13 PM (1).jpeg", "black-polo-shirt"),
+    ("WhatsApp Image 2026-10-29 at 9.13.17 PM (1).jpeg", "saudi-graduation-sash"),
+    ("WhatsApp Image 2026-10-29 at 9.19.11 PM.jpeg", "qadsiah-armband"),
+    ("WhatsApp Image 2026-10-29 at 9.13.18 PM (1).jpeg", "national-day-95-banners"),
+    ("WhatsApp Image 2026-10-29 at 9.13.18 PM (2).jpeg", "national-day-hand-flags"),
+    ("WhatsApp Image 2026-10-29 at 9.13.18 PM (3).jpeg", "national-day-falcon-banner"),
+    ("WhatsApp Image 2026-10-29 at 9.13.17 PM (3).jpeg", "national-day-pin-badges"),
+    ("WhatsApp Image 2026-10-29 at 9.13.17 PM (2).jpeg", "printed-tote-bag"),
+    ("WhatsApp Image 2026-10-29 at 9.19.10 PM (4).jpeg", "green-travel-agency-tote-bag"),
+    ("WhatsApp Image 2026-10-29 at 9.13.17 PM (4).jpeg", "crystal-awards"),
+    ("WhatsApp Image 2026-10-29 at 9.19.10 PM (1).jpeg", "engraved-wooden-gift-box"),
+    ("WhatsApp Image 2026-10-29 at 9.19.10 PM (2).jpeg", "wireless-charger"),
+    ("WhatsApp Image 2026-10-29 at 9.19.10 PM.jpeg", "usb-flash-drive"),
+    # The second blank-keychain photograph in the folder is the same mockup at a
+    # different size, so only one copy is published.
+    ("WhatsApp Image 2026-10-29 at 9.19.11 PM (1).jpeg", "metal-keychain"),
+    ("WhatsApp Image 2026-10-29 at 9.19.10 PM (3).jpeg", "enamel-keychain"),
+    ("WhatsApp Image 2026-10-29 at 9.19.13 PM (2).jpeg", "alpha-notebook-pen"),
+    ("WhatsApp Image 2026-10-29 at 9.19.13 PM (3).jpeg", "national-water-notebooks"),
+    ("WhatsApp Image 2026-10-29 at 9.13.18 PM.jpeg", "padel-tournament-backdrop"),
+    ("WhatsApp Image 2026-10-29 at 9.19.13 PM.jpeg", "exhibition-counter-design"),
+    ("WhatsApp Image 2026-10-29 at 9.19.12 PM (2).jpeg", "breast-cancer-awareness-card"),
 ]
 
 
@@ -176,16 +207,17 @@ def build_nameplates() -> None:
 def build_printed_apparel() -> None:
     clear("printed-apparel")
 
-    for name, slug in PRINTED_PHOTOS:
-        source = os.path.join(NEW_PHOTOS_DIR, name)
-        with Image.open(source) as image:
-            save_jpeg(
-                ImageOps.exif_transpose(image),
-                os.path.join(IMAGES, "printed-apparel", f"{slug}.jpg"),
-                1400,
-            )
+    for directory, photos in ((NEW_PHOTOS_DIR, PRINTED_PHOTOS), (NEW_PHOTOS_2_DIR, PRINTED_PHOTOS_2)):
+        for name, slug in photos:
+            source = os.path.join(directory, name)
+            with Image.open(source) as image:
+                save_jpeg(
+                    ImageOps.exif_transpose(image),
+                    os.path.join(IMAGES, "printed-apparel", f"{slug}.jpg"),
+                    1400,
+                )
 
-    print("printed apparel photographs:", len(PRINTED_PHOTOS))
+    print("printed apparel photographs:", len(PRINTED_PHOTOS) + len(PRINTED_PHOTOS_2))
 
 
 if __name__ == "__main__":

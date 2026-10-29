@@ -99,10 +99,10 @@ const en = {
     resume: 'Resume motion',
     reverse: 'Reverse direction',
     printed: {
-      title: 'Printed & Branded Apparel',
+      title: 'Printed & Branded Products',
       intro:
-        'Printed apparel from our collection — polo shirts, a sports jersey, a safety vest, a flag print design and a scarf.',
-      galleryLabel: 'Printed and branded apparel gallery',
+        'Print, branding and promotional work from our collection — apparel, flags, banners, bags, awards, gifts and print displays.',
+      galleryLabel: 'Printed and branded products gallery',
     },
     catalogue: {
       eyebrow: 'Product catalogue',
@@ -320,10 +320,10 @@ const ar: Dictionary = {
     resume: 'متابعة الحركة',
     reverse: 'عكس الاتجاه',
     printed: {
-      title: 'الملابس المطبوعة والمخصّصة',
+      title: 'المطبوعات والمنتجات المخصّصة',
       intro:
-        'ملابس مطبوعة من مجموعتنا — قمصان بولو وقميص رياضي وسترة سلامة وتصميم علم ووشاح.',
-      galleryLabel: 'معرض الملابس المطبوعة والمخصّصة',
+        'أعمال طباعة وتخصيص وهدايا ترويجية من مجموعتنا — ملابس وأعلام وبانرات وحقائب وجوائز وهدايا ومعروضات مطبوعة.',
+      galleryLabel: 'معرض المطبوعات والمنتجات المخصّصة',
     },
     catalogue: {
       eyebrow: 'كتالوج المنتجات',
