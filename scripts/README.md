@@ -21,7 +21,7 @@ python scripts/build-catalogues.py   # source PDFs -> public/catalogue/*.pdf
 | Output | Source | Notes |
 | --- | --- | --- |
 | `public/images/products/*.jpg` | `product pdf.pdf` (117 pages) | Ten selected crops; the marquee uses these |
-| `public/images/printed-apparel/*.jpg` | `new photos/` | All 13 printed apparel photographs shown under the product marquee |
+| `public/images/printed-apparel/*.jpg` | `new photos/` | All 8 printed apparel photographs shown under the product marquee |
 | `public/images/diary-designs/*.jpg` | `diary designs.pdf` (10 pages) | All 30 unique designs; the repeated blank page and cover collage are skipped |
 | `public/images/nameplate-stands/*.jpg` | `nameplate stand/` | All 26 unique photographs; byte-identical duplicates skipped |
 | `public/images/site/*.jpg` | Product/diary catalogues | Hero, About and diary-section imagery |

@@ -123,10 +123,10 @@ export const productImages: LocalizedImage[] = [
 ];
 
 /**
- * Thirteen photographs supplied in `new photos/`, showing printed and branded
- * apparel: polo shirts, T-shirts, a sports jersey, safety vests, Saudi flags and
- * printed scarves. They are displayed directly under the product marquee, before
- * the product catalogue panel.
+ * Eight photographs supplied in `new photos/`, showing printed and branded
+ * apparel: polo shirts, T-shirts, a sports jersey, a safety vest, a Saudi flag
+ * print design and a National Day scarf. They are displayed directly under the
+ * product marquee, before the product catalogue panel.
  */
 export const printedApparelImages: LocalizedImage[] = [
   {
@@ -172,45 +172,10 @@ export const printedApparelImages: LocalizedImage[] = [
     },
   },
   {
-    src: '/images/printed-apparel/safety-vest-hanger.jpg',
-    alt: {
-      en: 'Yellow and black high-visibility safety vest with pockets, held on a hanger',
-      ar: 'سترة سلامة عالية الوضوح باللونين الأصفر والأسود مع جيوب، معلقة على علاقة',
-    },
-  },
-  {
-    src: '/images/printed-apparel/safety-vest-logo.jpg',
-    alt: {
-      en: 'Close-up of a high-visibility vest printed with the Green One Company logo',
-      ar: 'لقطة قريبة لسترة عالية الوضوح مطبوع عليها شعار شركة جرين وان العالمية المحدودة',
-    },
-  },
-  {
-    src: '/images/printed-apparel/safety-vest-sample.jpg',
-    alt: {
-      en: 'White vest with reflective strips and a printed BMF company logo, held up as a sample',
-      ar: 'سترة بيضاء بشرائط عاكسة مطبوع عليها شعار شركة BMF، تُعرض كعينة',
-    },
-  },
-  {
-    src: '/images/printed-apparel/saudi-flag.jpg',
-    alt: {
-      en: 'A printed Saudi flag held open in the shop',
-      ar: 'علم المملكة العربية السعودية مطبوع ويُعرض مفتوحًا داخل المعرض',
-    },
-  },
-  {
     src: '/images/printed-apparel/saudi-flag-size-guide.jpg',
     alt: {
       en: 'Saudi flag print design marked with overall dimensions of 240 by 120 centimetres',
       ar: 'تصميم طباعة علم السعودية مع تحديد الأبعاد الكلية 240 × 120 سم',
-    },
-  },
-  {
-    src: '/images/printed-apparel/printed-scarf.jpg',
-    alt: {
-      en: 'Black printed scarf with red Arabic calligraphy and gold lettering',
-      ar: 'وشاح أسود مطبوع بخط عربي أحمر وكتابات ذهبية',
     },
   },
   {
