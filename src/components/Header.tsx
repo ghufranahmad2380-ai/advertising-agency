@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { contact, navigationTargets, sectionIds, whatsappUrl } from '../data/site';
+import { contact, navigationTargets, phones, sectionIds, whatsappUrl } from '../data/site';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { PhoneIcon, WhatsAppIcon } from './ui/Icons';
@@ -195,10 +195,17 @@ export function Header() {
               <WhatsAppIcon className="btn__icon" />
               {t.nav.whatsappCta}
             </a>
-            <a className="mobile-nav__contact" href={contact.phoneHref} onClick={closeMenu}>
-              <PhoneIcon className="mobile-nav__icon" />
-              <span dir="ltr">{contact.phoneDisplay}</span>
-            </a>
+            {phones.map((phone) => (
+              <a
+                key={phone.tel}
+                className="mobile-nav__contact"
+                href={phone.tel}
+                onClick={closeMenu}
+              >
+                <PhoneIcon className="mobile-nav__icon" />
+                <span dir="ltr">{phone.display}</span>
+              </a>
+            ))}
             <a className="mobile-nav__contact" href={contact.emailHref} onClick={closeMenu}>
               <span className="mobile-nav__icon" aria-hidden="true">
                 @

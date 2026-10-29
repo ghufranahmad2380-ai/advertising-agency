@@ -98,6 +98,42 @@
   text-align: start;
 }
 
+/* Several numbers in one card (call + WhatsApp): each number is its own link. */
+.contact-card__values {
+  display: grid;
+  gap: 1px;
+  margin-top: 2px;
+}
+
+.contact-card__value--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s var(--ease);
+}
+
+.contact-card__value--link:hover {
+  color: var(--blue);
+}
+
+.contact-card__arrow--inline {
+  width: 12px;
+  height: 12px;
+  opacity: 0.4;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.contact-card__value--link:hover .contact-card__arrow--inline,
+.contact-card__value--link:focus-visible .contact-card__arrow--inline {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+[dir='rtl'] .contact-card__value--link:hover .contact-card__arrow--inline,
+[dir='rtl'] .contact-card__value--link:focus-visible .contact-card__arrow--inline {
+  transform: scaleX(-1) translateX(3px);
+}
+
 .contact-card__hint {
   margin-top: 3px;
   font-size: 0.75rem;

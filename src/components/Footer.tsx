@@ -2,6 +2,7 @@ import {
   cataloguePaths,
   contact,
   navigationTargets,
+  phones,
   sectionIds,
   whatsappUrl,
 } from '../data/site';
@@ -94,9 +95,13 @@ export function Footer() {
             <ul className="footer__contacts">
               <li>
                 <PhoneIcon className="footer__contact-icon" />
-                <a href={contact.phoneHref} dir="ltr">
-                  {contact.phoneDisplay}
-                </a>
+                <span className="footer__phones">
+                  {phones.map((phone) => (
+                    <a key={phone.tel} href={phone.tel} dir="ltr">
+                      {phone.display}
+                    </a>
+                  ))}
+                </span>
               </li>
               <li>
                 <WhatsAppIcon className="footer__contact-icon" />

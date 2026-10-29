@@ -133,6 +133,12 @@
   color: var(--yellow);
 }
 
+/* Both supplied numbers, stacked under the phone icon. */
+.footer__phones {
+  display: grid;
+  gap: 3px;
+}
+
 .footer__contact-icon {
   width: 15px;
   height: 15px;

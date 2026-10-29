@@ -1,5 +1,5 @@
-import { useRef, useState, type FormEvent } from 'react';
-import { contact, whatsappUrl } from '../data/site';
+import { useRef, useState, type FormEvent, type ReactNode } from 'react';
+import { contact, phones, whatsappUrl } from '../data/site';
 import type { Dictionary } from '../i18n/dictionary';
 import { useLanguage } from '../i18n/LanguageContext';
 import { ArrowIcon, MailIcon, MapPinIcon, PhoneIcon, WhatsAppIcon } from './ui/Icons';
@@ -70,6 +70,23 @@ function buildWhatsappMessage(
   ].join('\n');
 }
 
+interface ContactEntry {
+  value: string;
+  href: string;
+}
+
+interface ContactMethod {
+  key: string;
+  icon: ReactNode;
+  label: string;
+  /** One entry renders as a value plus the action below it; several entries are
+   * rendered as their own links (both phone numbers, for example). */
+  entries: ContactEntry[];
+  action?: string;
+  hint: string;
+  external: boolean;
+}
+
 export function Contact() {
   const { t } = useLanguage();
   const [values, setValues] = useState<FormValues>(EMPTY_FORM);
@@ -78,7 +95,6 @@ export function Contact() {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const formCopy = t.contact.form;
-  const whatsappHref = whatsappUrl(t.common.whatsappMessage);
 
   const updateField = (field: FieldName) => (event: { target: { value: string } }) => {
     setValues((current) => ({ ...current, [field]: event.target.value }));
@@ -107,14 +123,15 @@ export function Contact() {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const methods = [
+  const methods: ContactMethod[] = [
     {
       key: 'whatsapp',
       icon: <WhatsAppIcon className="contact-card__icon" />,
       label: t.contact.methods.whatsapp.label,
-      value: contact.phoneDisplay,
-      href: whatsappHref,
-      action: t.contact.methods.whatsapp.action,
+      entries: phones.map((phone) => ({
+        value: phone.display,
+        href: whatsappUrl(t.common.whatsappMessage, phone.whatsapp),
+      })),
       hint: t.contact.methods.whatsapp.hint,
       external: true,
     },
@@ -122,9 +139,7 @@ export function Contact() {
       key: 'phone',
       icon: <PhoneIcon className="contact-card__icon" />,
       label: t.contact.methods.phone.label,
-      value: contact.phoneDisplay,
-      href: contact.phoneHref,
-      action: t.contact.methods.phone.action,
+      entries: phones.map((phone) => ({ value: phone.display, href: phone.tel })),
       hint: t.contact.methods.phone.hint,
       external: false,
     },
@@ -132,8 +147,7 @@ export function Contact() {
       key: 'location',
       icon: <MapPinIcon className="contact-card__icon" />,
       label: t.contact.methods.location.label,
-      value: t.brand.location,
-      href: contact.mapsUrl,
+      entries: [{ value: t.brand.location, href: contact.mapsUrl }],
       action: t.contact.methods.location.action,
       hint: t.contact.methods.location.hint,
       external: true,
@@ -142,8 +156,7 @@ export function Contact() {
       key: 'email',
       icon: <MailIcon className="contact-card__icon" />,
       label: t.contact.methods.email.label,
-      value: contact.email,
-      href: contact.emailHref,
+      entries: [{ value: contact.email, href: contact.emailHref }],
       action: t.contact.methods.email.action,
       hint: t.contact.methods.email.hint,
       external: false,
@@ -172,23 +185,47 @@ export function Contact() {
 
                   <div className="contact-card__body">
                     <p className="contact-card__label">{method.label}</p>
-                    <p
-                      className="contact-card__value"
-                      dir={method.key === 'location' ? undefined : 'ltr'}
-                    >
-                      {method.value}
-                    </p>
+
+                    {method.entries.length > 1 ? (
+                      <ul className="contact-card__values">
+                        {method.entries.map((entry) => (
+                          <li key={entry.href}>
+                            <a
+                              className="contact-card__value contact-card__value--link"
+                              href={entry.href}
+                              aria-label={`${method.label}: ${entry.value}`}
+                              {...(method.external
+                                ? { target: '_blank', rel: 'noopener noreferrer' }
+                                : {})}
+                            >
+                              <span dir="ltr">{entry.value}</span>
+                              <ArrowIcon className="contact-card__arrow contact-card__arrow--inline" />
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p
+                        className="contact-card__value"
+                        dir={method.key === 'location' ? undefined : 'ltr'}
+                      >
+                        {method.entries[0].value}
+                      </p>
+                    )}
+
                     <p className="contact-card__hint">{method.hint}</p>
                   </div>
 
-                  <a
-                    className="contact-card__action"
-                    href={method.href}
-                    {...(method.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  >
-                    {method.action}
-                    <ArrowIcon className="contact-card__arrow" />
-                  </a>
+                  {method.action && (
+                    <a
+                      className="contact-card__action"
+                      href={method.entries[0].href}
+                      {...(method.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    >
+                      {method.action}
+                      <ArrowIcon className="contact-card__arrow" />
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

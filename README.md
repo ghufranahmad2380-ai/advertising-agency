@@ -133,7 +133,9 @@ assets; see [scripts/README.md](scripts/README.md).
 ## Contact and WhatsApp behaviour
 
 - Phone, WhatsApp, email and Google Maps links use the verified details:
-  `+966 56 465 6508`, `es.gift@yahoo.com`, and the supplied Maps short link.
+  `+966 56 465 6508` and `+966 56 707 9049`, `es.gift@yahoo.com`, and the supplied
+  Maps short link. Both numbers are listed under **Phone** (tap to call) and under
+  **WhatsApp** in the contact section, and in the footer and mobile menu.
 - The inquiry form validates name, phone, email, interest and message, then builds
   a readable message and opens `https://wa.me/966564656508?text=…` in a new tab.
   A fallback link is shown in the confirmation notice.

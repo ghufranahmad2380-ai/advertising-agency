@@ -6,18 +6,39 @@
  * product specifications are invented here.
  */
 
+export interface PhoneNumber {
+  /** Number as it should be read out on screen. */
+  display: string;
+  /** `tel:` link target. */
+  tel: string;
+  /** Digits only, for `wa.me` links. */
+  whatsapp: string;
+}
+
+/**
+ * The two numbers supplied by the client. Both are offered for calls and on
+ * WhatsApp, so every phone and WhatsApp link is generated from this list.
+ */
+export const phones: PhoneNumber[] = [
+  { display: '+966 56 465 6508', tel: 'tel:+966564656508', whatsapp: '966564656508' },
+  { display: '+966 56 707 9049', tel: 'tel:+966567079049', whatsapp: '966567079049' },
+];
+
 export const contact = {
-  phoneDisplay: '+966 56 465 6508',
-  phoneHref: 'tel:+966564656508',
-  whatsappNumber: '966564656508',
+  phoneDisplay: phones[0].display,
+  phoneHref: phones[0].tel,
+  whatsappNumber: phones[0].whatsapp,
   email: 'es.gift@yahoo.com',
   emailHref: 'mailto:es.gift@yahoo.com',
   mapsUrl: 'https://maps.app.goo.gl/DPiHqX73na2Ngkr8A?g_st=iw',
 } as const;
 
-/** Builds a wa.me link; the message is URL-encoded exactly once. */
-export function whatsappUrl(message: string): string {
-  return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
+/**
+ * Builds a wa.me link; the message is URL-encoded exactly once. Defaults to the
+ * first number and accepts either WhatsApp number explicitly.
+ */
+export function whatsappUrl(message: string, number: string = contact.whatsappNumber): string {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
 export const cataloguePaths = {

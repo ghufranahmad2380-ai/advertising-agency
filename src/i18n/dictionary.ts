@@ -160,7 +160,7 @@ const en = {
       phone: {
         label: 'Phone',
         action: 'Call us',
-        hint: 'Tap to call from your phone.',
+        hint: 'Tap a number to call from your phone.',
       },
       location: {
         label: 'Location',
@@ -381,7 +381,7 @@ const ar: Dictionary = {
       phone: {
         label: 'الهاتف',
         action: 'اتصل بنا',
-        hint: 'اضغط للاتصال من هاتفك.',
+        hint: 'اضغط على الرقم للاتصال من هاتفك.',
       },
       location: {
         label: 'الموقع',
