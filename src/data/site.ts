@@ -144,13 +144,315 @@ export const productImages: LocalizedImage[] = [
 ];
 
 /**
- * Twenty-nine photographs supplied in `new photos/` and `new photos 2/`, showing
- * print, branding and promotional work: printed apparel, safety vests, national-day
- * flags and banners, tote bags, awards, notebooks, keychains, tech gifts and print
+ * Seventy-two photographs supplied in `new photos/`, `new photos 2/` and
+ * `new photos 3/`, showing print, branding and promotional work: printed apparel,
+ * safety vests, national-day flags and banners, tote bags, awards and trophies,
+ * desk sets, notebooks, keychains, tech gifts, corporate gift boxes and print
  * displays. They are displayed directly under the product marquee, before the
  * product catalogue panel.
  */
 export const printedApparelImages: LocalizedImage[] = [
+  {
+    src: '/images/printed-apparel/armed-forces-nursing-award.jpg',
+    alt: {
+      en: 'Hexagonal clear acrylic award with a blue border on a wooden base, engraved for the Nursing Administration of the Armed Forces Hospital in Dammam',
+      ar: 'درع أكريليك سداسي شفاف بإطار أزرق على قاعدة خشبية، منقوش لإدارة التمريض في مستشفى قوى الأمن بالدمام',
+    },
+  },
+  {
+    src: '/images/printed-apparel/mewa-black-travel-mug.jpg',
+    alt: {
+      en: 'Matte black insulated travel mug with a wooden grip band, printed with the Ministry of Environment, Water and Agriculture logo in white',
+      ar: 'كوب سفر أسود مطفي معزول بحزام خشبي، مطبوع عليه شعار وزارة البيئة والمياه والزراعة باللون الأبيض',
+    },
+  },
+  {
+    src: '/images/printed-apparel/wooden-desk-organiser-set.jpg',
+    alt: {
+      en: 'Dark wood desk organiser with a letter tray, pen grooves, a small clock and a note tray on a black leather mat',
+      ar: 'منظّم مكتبي من الخشب الداكن بصينية للمراسلات وتجاويف للأقلام وساعة صغيرة وصينية للملاحظات على قاعدة من الجلد الأسود',
+    },
+  },
+  {
+    src: '/images/printed-apparel/mewa-white-travel-mug.jpg',
+    alt: {
+      en: 'White insulated travel mug with a wooden grip band, printed with the Ministry of Environment, Water and Agriculture logo in green',
+      ar: 'كوب سفر أبيض معزول بحزام خشبي، مطبوع عليه شعار وزارة البيئة والمياه والزراعة باللون الأخضر',
+    },
+  },
+  {
+    src: '/images/printed-apparel/farabi-manufacturing-award.jpg',
+    alt: {
+      en: 'Curved wooden plaque with gold Manufacturing Excellence Award 2025 lettering, the year cut into its side and a Farabi Petrochemicals plate',
+      ar: 'درع خشبي منحنٍ بنقوش ذهبية بعنوان Manufacturing Excellence Award 2025 والعام 2025 على جانبه ولوحة شعار شركة فارابي للبتروكيماويات',
+    },
+  },
+  {
+    src: '/images/printed-apparel/crystal-star-trophy.jpg',
+    alt: {
+      en: 'Clear crystal trophy with a curved sail shape and a gold star resting at its base',
+      ar: 'درع كريستالي شفاف بتصميم شراع منحنٍ ونجمة ذهبية عند قاعدته',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-wooden-pen-gift-box.jpg',
+    alt: {
+      en: 'Kraft gift box holding a blank metal keyring and a wooden ballpoint pen printed with the aramco logo',
+      ar: 'علبة هدايا كرتونية تضم ميدالية مفاتيح معدنية فارغة وقلمًا خشبيًا مطبوعًا عليه شعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/crystal-flame-trophy.jpg',
+    alt: {
+      en: 'Clear crystal award shaped like a flame above a faceted crystal base',
+      ar: 'درع كريستالي شفاف على شكل لهب فوق قاعدة كريستالية متعددة الأوجه',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-notebook-pen-gift-box.jpg',
+    alt: {
+      en: 'Black presentation box with a grey fabric notebook, a pen, a keyring and a metal USB drive, all printed with the aramco logo',
+      ar: 'علبة تقديم سوداء بدفتر قماشي رمادي وقلم وميدالية مفاتيح وذاكرة USB معدنية، جميعها مطبوعة بشعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-travel-gift-box.jpg',
+    alt: {
+      en: 'Black gift box containing an aramco notebook wallet, a pen, a power bank and a smart band',
+      ar: 'علبة هدايا سوداء تحتوي محفظة دفتر أرامكو وقلمًا وبطارية متنقلة وسوارًا ذكيًا',
+    },
+  },
+  {
+    src: '/images/printed-apparel/viva-mexico-cutout.jpg',
+    alt: {
+      en: 'Printed VIVA MEXICO cut-out with a sombrero, maracas and glossy multicolour lettering',
+      ar: 'مجسّم مطبوع بعبارة VIVA MEXICO مع قبعة سومبريرو وماراكاس وحروف لامعة متعددة الألوان',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-black-keychain.jpg',
+    alt: {
+      en: 'Black fabric strap keychain with a gunmetal clasp printed with the aramco logo',
+      ar: 'ميدالية مفاتيح بشريط قماشي أسود ومشبك معدني داكن مطبوع عليه شعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-cork-tumbler.jpg',
+    alt: {
+      en: 'Cork-covered travel tumbler with a black lid, printed with the aramco logo',
+      ar: 'كوب سفر مغلّف بالفلين بغطاء أسود ومطبوع عليه شعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-white-tumbler.jpg',
+    alt: {
+      en: 'White insulated tumbler with a black lid and a steel collar, printed with the aramco logo',
+      ar: 'كوب معزول أبيض بغطاء أسود وطوق من الستيل ومطبوع عليه شعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-navy-tumbler.jpg',
+    alt: {
+      en: 'Navy blue insulated tumbler with a copper-toned band, printed with the aramco logo',
+      ar: 'كوب معزول أزرق كحلي بحزام بلون النحاس ومطبوع عليه شعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-navy-keychain.jpg',
+    alt: {
+      en: 'Navy fabric keychain with metal swivel rings and a clasp printed with the aramco logo',
+      ar: 'ميدالية مفاتيح بشريط كحلي وحلقات معدنية دوّارة ومشبك مطبوع عليه شعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-white-water-bottle.jpg',
+    alt: {
+      en: 'White stainless steel water bottle with a cork stopper, printed with the aramco logo',
+      ar: 'زجاجة مياه بيضاء من الستيل بسدادة من الفلين ومطبوع عليها شعار أرامكو',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-executive-gift-box.jpg',
+    alt: {
+      en: 'Black executive gift box with an aramco notebook, pen, earbuds, power bank and thermos flask',
+      ar: 'علبة هدايا تنفيذية سوداء تضم دفتر أرامكو وقلمًا وسماعات وبطارية متنقلة وترمسًا',
+    },
+  },
+  {
+    src: '/images/printed-apparel/red-badge-reel.jpg',
+    alt: {
+      en: 'Red retractable badge reel with a metal belt clip and a clear strap',
+      ar: 'حاملة بطاقات حمراء قابلة للسحب بمشبك معدني للحزام وشريط شفاف',
+    },
+  },
+  {
+    src: '/images/printed-apparel/red-national-day-gift-box.jpg',
+    alt: {
+      en: 'White National Day gift box with two printed scarves, a clock and compass set, a red flask and a red notebook',
+      ar: 'علبة هدايا بيضاء لليوم الوطني تحتوي وشاحين مطبوعين وطقم ساعة وبوصلة وترمسًا أحمر ودفترًا أحمر',
+    },
+  },
+  {
+    src: '/images/printed-apparel/green-national-day-gift-box.jpg',
+    alt: {
+      en: 'Black Saudi National Day 95 gift box with a printed green scarf, a notebook, a flask, a clock and a commemorative card',
+      ar: 'علبة هدايا سوداء لليوم الوطني السعودي 95 تحتوي وشاحًا أخضر مطبوعًا ودفترًا وترمسًا وساعة وبطاقة تذكارية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/wallet-and-clock-gift-box.jpg',
+    alt: {
+      en: 'White gift box with a digital alarm clock, a leather wallet, a keyring, a metal USB drive and a National Day card',
+      ar: 'علبة هدايا بيضاء تضم ساعة منبّه رقمية ومحفظة جلدية وميدالية مفاتيح وذاكرة USB معدنية وبطاقة لليوم الوطني',
+    },
+  },
+  {
+    src: '/images/printed-apparel/crystal-mantel-clock.jpg',
+    alt: {
+      en: 'Crystal mantel clock with black columns, faceted crystal capitals and a gold skeleton dial',
+      ar: 'ساعة طاولة كريستالية بأعمدة سوداء وتيجان كريستالية متعددة الأوجه وميناء ذهبي مكشوف',
+    },
+  },
+  {
+    src: '/images/printed-apparel/grey-notebook-thermos-gift-set.jpg',
+    alt: {
+      en: 'Grey gift box with a carry handle holding a fabric notebook, a pen, a power bank, a metal USB drive and a steel thermos',
+      ar: 'علبة هدايا رمادية بمقبض حمل تضم دفترًا قماشيًا وقلمًا وبطارية متنقلة وذاكرة USB معدنية وترمسًا من الستيل',
+    },
+  },
+  {
+    src: '/images/printed-apparel/aramco-jute-tote-bag.jpg',
+    alt: {
+      en: 'Black jute tote bag with navy handles and the aramco logo printed on the front',
+      ar: 'حقيبة تسوق سوداء من الجوت بمقابض كحلية وشعار أرامكو مطبوع على الواجهة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/gold-saudi-map-gift-box.jpg',
+    alt: {
+      en: 'Black and gold presentation case holding a gold Saudi Arabia map plaque, a dallah coffee pot, a palm tree and a small cup on a gold plinth',
+      ar: 'صندوق تقديم أسود وذهبي يضم مجسّم خريطة السعودية بالذهب ودلة قهوة ونخلة وفنجانًا صغيرًا على قاعدة ذهبية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/green-leather-notebook-set.jpg',
+    alt: {
+      en: 'Green leather-look notebook with a gold clasp and a matching pen in a black foam gift box',
+      ar: 'دفتر أخضر بمظهر جلدي بإغلاق ذهبي وقلم مطابق داخل علبة هدايا بإسفنج أسود',
+    },
+  },
+  {
+    src: '/images/printed-apparel/glass-desk-clock-pen-stand.jpg',
+    alt: {
+      en: 'Desk clock on a mahogany base with a glass panel, a thermometer, a hygrometer and a matching pen',
+      ar: 'ساعة مكتبية على قاعدة من خشب الماهوجني بلوح زجاجي ومقياس حرارة ومقياس رطوبة وقلم مطابق',
+    },
+  },
+  {
+    src: '/images/printed-apparel/black-tech-gift-box.jpg',
+    alt: {
+      en: 'Slim black gift box with a stylus pen, two keyrings, a leather key fob and a magnetic wireless power bank',
+      ar: 'علبة هدايا سوداء نحيفة تضم قلمًا رقميًا وميداليتي مفاتيح وحلقة مفاتيح جلدية وبطارية متنقلة لاسلكية مغناطيسية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/gold-circle-crystal-award.jpg',
+    alt: {
+      en: 'Round clear crystal blank mounted in a gold crescent stand with a small gold sphere',
+      ar: 'درع كريستالي شفاف دائري فارغ مثبّت على حامل ذهبي هلالي مع كرة ذهبية صغيرة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/gold-wings-trophy.jpg',
+    alt: {
+      en: 'Gold wire trophy shaped like feathered wings above a black stone base',
+      ar: 'كأس من أسلاك ذهبية على شكل أجنحة مروّشة فوق قاعدة من الحجر الأسود',
+    },
+  },
+  {
+    src: '/images/printed-apparel/wooden-presentation-box.jpg',
+    alt: {
+      en: 'Open mahogany presentation box with a blank gold engraved plate inside',
+      ar: 'صندوق تقديم مفتوح من خشب الماهوجني يحتوي لوحة ذهبية فارغة قابلة للنقش',
+    },
+  },
+  {
+    src: '/images/printed-apparel/gold-star-swirl-trophy.jpg',
+    alt: {
+      en: 'Gold sculpted trophy with flowing ribbons and a star on a black base',
+      ar: 'كأس ذهبي منحوت بشرائط انسيابية ونجمة فوق قاعدة سوداء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/black-mountain-award.jpg',
+    alt: {
+      en: 'Black award with a jagged mountain-peak top on a white base',
+      ar: 'درع أسود بقمة جبلية متعرّجة فوق قاعدة بيضاء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/blue-crystal-column-trophy.jpg',
+    alt: {
+      en: 'Clear crystal trophy made of ascending columns on a cobalt blue cylindrical base',
+      ar: 'درع كريستالي شفاف من أعمدة متصاعدة على قاعدة أسطوانية زرقاء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/clear-crystal-arch-award.jpg',
+    alt: {
+      en: 'Clear crystal award in a rounded arch shape, left blank for engraving',
+      ar: 'درع كريستالي شفاف بشكل قوس مستدير، تُرك فارغًا للنقش',
+    },
+  },
+  {
+    src: '/images/printed-apparel/crystal-sail-award.jpg',
+    alt: {
+      en: 'Clear crystal award with a curved sail edge on a black crystal base',
+      ar: 'درع كريستالي شفاف بحافة منحنية كالشراع فوق قاعدة كريستالية سوداء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/gold-leaf-trophy.jpg',
+    alt: {
+      en: 'Gold wire trophy shaped like a spiralling leaf above a crystal bowl and a black base',
+      ar: 'كأس من أسلاك ذهبية على شكل ورقة حلزونية فوق وعاء كريستالي وقاعدة سوداء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/acrylic-mountain-block-award.jpg',
+    alt: {
+      en: 'Clear acrylic block award with a black mountain landscape cast inside it',
+      ar: 'درع من الأكريليك الشفاف يحتوي داخله مشهد جبال باللون الأسود',
+    },
+  },
+  {
+    src: '/images/printed-apparel/rectangular-crystal-award.jpg',
+    alt: {
+      en: 'Rectangular clear crystal block on a black base, left blank for engraving',
+      ar: 'درع كريستالي شفاف مستطيل الشكل على قاعدة سوداء، تُرك فارغًا للنقش',
+    },
+  },
+  {
+    src: '/images/printed-apparel/volta-safety-vest.jpg',
+    alt: {
+      en: 'Neon yellow high-visibility vest with black lower panels, reflective tape, pockets and a Volta logo',
+      ar: 'سترة سلامة صفراء فسفورية عالية الوضوح بأجزاء سفلية سوداء وأشرطة عاكسة وجيوب وشعار Volta',
+    },
+  },
+  {
+    src: '/images/printed-apparel/gold-horse-gift-box.jpg',
+    alt: {
+      en: 'Gold-plated horse sculpture on a gold plinth inside a burgundy velvet presentation box',
+      ar: 'مجسّم حصان مطلي بالذهب على قاعدة ذهبية داخل صندوق تقديم من المخمل العنابي',
+    },
+  },
+  {
+    src: '/images/printed-apparel/tall-crystal-column-award.jpg',
+    alt: {
+      en: 'Tall clear crystal column award on a black base, left blank for engraving',
+      ar: 'درع كريستالي شفاف طويل على قاعدة سوداء، تُرك فارغًا للنقش',
+    },
+  },
   {
     src: '/images/printed-apparel/restaurant-polo-shirts.jpg',
     alt: {

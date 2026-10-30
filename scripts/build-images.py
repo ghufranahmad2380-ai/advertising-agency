@@ -6,10 +6,11 @@ Inputs (kept in the project root, outside public/):
   - "nameplate stand/"       28 JPEG photographs (26 unique after de-duplication)
   - "new photos/"            WhatsApp photographs of printed apparel and print work
   - "new photos 2/"          further photographs of print, branding and promo work
+  - "new photos 3/"          corporate gift, award and branded-merchandise mockups
 
 Outputs:
   - public/images/products/*.jpg         10 selected product photographs (crops)
-  - public/images/printed-apparel/*.jpg  29 printed / branded product photographs
+  - public/images/printed-apparel/*.jpg  72 printed / branded product photographs
   - public/images/diary-designs/*.jpg    every unique diary design (30)
   - public/images/nameplate-stands/*.jpg all unique nameplate photographs (26)
   - public/images/site/*.jpg             hero / about / diary section imagery
@@ -30,6 +31,7 @@ DIARY_PDF = os.path.join(ROOT, "diary designs.pdf")
 NAMEPLATE_DIR = os.path.join(ROOT, "nameplate stand")
 NEW_PHOTOS_DIR = os.path.join(ROOT, "new photos")
 NEW_PHOTOS_2_DIR = os.path.join(ROOT, "new photos 2")
+NEW_PHOTOS_3_DIR = os.path.join(ROOT, "new photos 3")
 
 # (PDF page number, crop box in source pixels, output slug)
 PRODUCT_CROPS = [
@@ -85,6 +87,57 @@ PRINTED_PHOTOS_2 = [
     ("WhatsApp Image 2026-10-29 at 9.13.18 PM.jpeg", "padel-tournament-backdrop"),
     ("WhatsApp Image 2026-10-29 at 9.19.13 PM.jpeg", "exhibition-counter-design"),
     ("WhatsApp Image 2026-10-29 at 9.19.12 PM (2).jpeg", "breast-cancer-awareness-card"),
+]
+
+# (source file name in "new photos 3/", output slug)
+#
+# Two photographs in this folder are the same mockup saved twice — the crystal
+# mantel clock (10.37.33 × 10.40.55 (5)) and the blue crystal column trophy
+# (10.37.35 × 10.40.57 (3)) — so only the roomier portrait copy of each is kept.
+PRINTED_PHOTOS_3 = [
+    ("WhatsApp Image 2026-10-30 at 10.37.34 PM.jpeg", "armed-forces-nursing-award"),
+    ("WhatsApp Image 2026-10-30 at 10.37.35 PM (1).jpeg", "mewa-black-travel-mug"),
+    ("WhatsApp Image 2026-10-30 at 10.37.36 PM (1).jpeg", "wooden-desk-organiser-set"),
+    ("WhatsApp Image 2026-10-30 at 10.37.36 PM.jpeg", "mewa-white-travel-mug"),
+    ("WhatsApp Image 2026-10-30 at 10.40.41 PM.jpeg", "farabi-manufacturing-award"),
+    ("WhatsApp Image 2026-10-30 at 10.40.52 PM (1).jpeg", "crystal-star-trophy"),
+    ("WhatsApp Image 2026-10-30 at 10.40.52 PM.jpeg", "aramco-wooden-pen-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.53 PM (1).jpeg", "crystal-flame-trophy"),
+    ("WhatsApp Image 2026-10-30 at 10.40.53 PM (2).jpeg", "aramco-notebook-pen-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.53 PM (3).jpeg", "aramco-travel-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.53 PM.jpeg", "viva-mexico-cutout"),
+    ("WhatsApp Image 2026-10-30 at 10.40.54 PM (1).jpeg", "aramco-black-keychain"),
+    ("WhatsApp Image 2026-10-30 at 10.40.54 PM (2).jpeg", "aramco-cork-tumbler"),
+    ("WhatsApp Image 2026-10-30 at 10.40.54 PM (3).jpeg", "aramco-white-tumbler"),
+    ("WhatsApp Image 2026-10-30 at 10.40.54 PM (4).jpeg", "aramco-navy-tumbler"),
+    ("WhatsApp Image 2026-10-30 at 10.40.54 PM (5).jpeg", "aramco-navy-keychain"),
+    ("WhatsApp Image 2026-10-30 at 10.40.54 PM (6).jpeg", "aramco-white-water-bottle"),
+    ("WhatsApp Image 2026-10-30 at 10.40.54 PM.jpeg", "aramco-executive-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.55 PM (1).jpeg", "red-badge-reel"),
+    ("WhatsApp Image 2026-10-30 at 10.40.55 PM (2).jpeg", "red-national-day-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.55 PM (3).jpeg", "green-national-day-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.55 PM (4).jpeg", "wallet-and-clock-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.55 PM (5).jpeg", "crystal-mantel-clock"),
+    ("WhatsApp Image 2026-10-30 at 10.40.55 PM (6).jpeg", "grey-notebook-thermos-gift-set"),
+    ("WhatsApp Image 2026-10-30 at 10.40.55 PM.jpeg", "aramco-jute-tote-bag"),
+    ("WhatsApp Image 2026-10-30 at 10.40.56 PM (1).jpeg", "gold-saudi-map-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.56 PM (2).jpeg", "green-leather-notebook-set"),
+    ("WhatsApp Image 2026-10-30 at 10.40.56 PM (3).jpeg", "glass-desk-clock-pen-stand"),
+    ("WhatsApp Image 2026-10-30 at 10.40.56 PM (4).jpeg", "black-tech-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.56 PM (5).jpeg", "gold-circle-crystal-award"),
+    ("WhatsApp Image 2026-10-30 at 10.40.56 PM (6).jpeg", "gold-wings-trophy"),
+    ("WhatsApp Image 2026-10-30 at 10.40.56 PM.jpeg", "wooden-presentation-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.57 PM (1).jpeg", "gold-star-swirl-trophy"),
+    ("WhatsApp Image 2026-10-30 at 10.40.57 PM (2).jpeg", "black-mountain-award"),
+    ("WhatsApp Image 2026-10-30 at 10.40.57 PM (3).jpeg", "blue-crystal-column-trophy"),
+    ("WhatsApp Image 2026-10-30 at 10.40.57 PM (4).jpeg", "clear-crystal-arch-award"),
+    ("WhatsApp Image 2026-10-30 at 10.40.57 PM (5).jpeg", "crystal-sail-award"),
+    ("WhatsApp Image 2026-10-30 at 10.40.57 PM.jpeg", "gold-leaf-trophy"),
+    ("WhatsApp Image 2026-10-30 at 10.40.58 PM (1).jpeg", "acrylic-mountain-block-award"),
+    ("WhatsApp Image 2026-10-30 at 10.40.58 PM (2).jpeg", "rectangular-crystal-award"),
+    ("WhatsApp Image 2026-10-30 at 10.40.58 PM (3).jpeg", "volta-safety-vest"),
+    ("WhatsApp Image 2026-10-30 at 10.40.58 PM (4).jpeg", "gold-horse-gift-box"),
+    ("WhatsApp Image 2026-10-30 at 10.40.58 PM.jpeg", "tall-crystal-column-award"),
 ]
 
 
@@ -207,7 +260,14 @@ def build_nameplates() -> None:
 def build_printed_apparel() -> None:
     clear("printed-apparel")
 
-    for directory, photos in ((NEW_PHOTOS_DIR, PRINTED_PHOTOS), (NEW_PHOTOS_2_DIR, PRINTED_PHOTOS_2)):
+    sources = (
+        (NEW_PHOTOS_DIR, PRINTED_PHOTOS),
+        (NEW_PHOTOS_2_DIR, PRINTED_PHOTOS_2),
+        (NEW_PHOTOS_3_DIR, PRINTED_PHOTOS_3),
+    )
+
+    total = 0
+    for directory, photos in sources:
         for name, slug in photos:
             source = os.path.join(directory, name)
             with Image.open(source) as image:
@@ -216,8 +276,9 @@ def build_printed_apparel() -> None:
                     os.path.join(IMAGES, "printed-apparel", f"{slug}.jpg"),
                     1400,
                 )
+            total += 1
 
-    print("printed apparel photographs:", len(PRINTED_PHOTOS) + len(PRINTED_PHOTOS_2))
+    print("printed apparel photographs:", total)
 
 
 if __name__ == "__main__":
