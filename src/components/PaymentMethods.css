@@ -1,11 +1,40 @@
 /* ============================================================
    PAYMENT METHODS
-   One quiet strip between Services and Contact. The mada logo sits
-   beside the bilingual "accepted here" line, then the card and
-   instalment networks follow behind a hairline separator.
+   A standalone section between Services and Contact: the usual
+   eyebrow / title / intro head, then one white strip holding the
+   mada logo, the bilingual "accepted here" line and the card and
+   instalment networks behind hairline separators.
    ============================================================ */
 .payments {
   border-top: 1px solid var(--line);
+}
+
+/* ---------------------------------------------------------- Heading */
+.payments__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 44px;
+  flex-wrap: wrap;
+  padding-bottom: clamp(24px, 3vw, 38px);
+}
+
+.payments__head-copy {
+  max-width: 640px;
+}
+
+.payments__title {
+  margin-top: 18px;
+  font-size: clamp(2.1rem, 3.9vw, 3.4rem);
+}
+
+[lang='ar'] .payments__title {
+  font-size: clamp(1.95rem, 3.6vw, 3.1rem);
+}
+
+.payments__intro {
+  max-width: 44ch;
+  padding-bottom: 4px;
 }
 
 .payments__panel {
@@ -198,6 +227,14 @@
 }
 
 @media (max-width: 560px) {
+  .payments__head {
+    align-items: flex-start;
+  }
+
+  .payments__title {
+    font-size: clamp(2rem, 9.4vw, 2.7rem);
+  }
+
   .payments__panel {
     gap: 12px;
     padding: 18px 14px;
@@ -227,8 +264,14 @@
 }
 
 @media (max-width: 400px) {
+  /* Keep all four network logos on one line down to 320px. */
   .payments__logos {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .payments__tile--mint,
+  .payments__tile--gradient {
+    padding: 6px 8px;
   }
 }
 

@@ -4,9 +4,10 @@ import { Reveal } from './ui/Reveal';
 import './PaymentMethods.css';
 
 /**
- * Accepted payment methods, shown as one quiet white strip directly above the
- * contact section: the mada logo with the bilingual "accepted here" line, then
- * the card and instalment networks.
+ * Accepted payment methods — its own section, sitting between Services and
+ * Contact. A standard section head (eyebrow, title, intro) sits above one
+ * quiet white strip: the mada logo with the bilingual "accepted here" line,
+ * then the card and instalment networks.
  *
  * Every logo is the official brand file from public/images/payments/ — nothing
  * is redrawn in text or type.
@@ -16,16 +17,22 @@ export function PaymentMethods() {
 
   return (
     <section
-      className="payments section section--tight section--paper"
+      className="payments section section--paper"
       id="payments"
       aria-labelledby="payments-title"
     >
       <div className="container">
-        <Reveal className="payments__panel">
-          <h2 className="sr-only" id="payments-title">
-            {t.payments.title}
-          </h2>
+        <Reveal className="payments__head">
+          <div className="payments__head-copy">
+            <p className="eyebrow">{t.payments.eyebrow}</p>
+            <h2 className="section-title payments__title" id="payments-title">
+              {t.payments.title}
+            </h2>
+          </div>
+          <p className="section-head__aside payments__intro">{t.payments.intro}</p>
+        </Reveal>
 
+        <Reveal className="payments__panel" delay={80}>
           <div className="payments__brand">
             <img
               className="payments__logo payments__logo--mada"

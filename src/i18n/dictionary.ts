@@ -148,7 +148,9 @@ const en = {
   },
 
   payments: {
-    title: 'Payment Methods',
+    eyebrow: 'Payment Methods',
+    title: 'Accepted Payment Methods',
+    intro: 'Pay in store with mada, VISA, Mastercard, Tabby or Tamara.',
     logosLabel: 'Accepted payment methods',
     acceptedArabic: 'مقبول هنا',
     acceptedEnglish: 'ACCEPTED HERE',
@@ -376,7 +378,9 @@ const ar: Dictionary = {
   },
 
   payments: {
-    title: 'طرق الدفع',
+    eyebrow: 'طرق الدفع',
+    title: 'طرق الدفع المقبولة',
+    intro: 'ادفع لدينا باستخدام مدى وفيزا وماستركارد وتابي وتمارا.',
     logosLabel: 'طرق الدفع المقبولة',
     acceptedArabic: 'مقبول هنا',
     acceptedEnglish: 'ACCEPTED HERE',
