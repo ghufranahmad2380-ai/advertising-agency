@@ -1,0 +1,254 @@
+/* ============================================================
+   PAYMENT METHODS
+   One quiet strip between Services and Contact. The mada logo sits
+   beside the bilingual "accepted here" line, then the card and
+   instalment networks follow behind a hairline separator.
+   ============================================================ */
+.payments {
+  border-top: 1px solid var(--line);
+}
+
+.payments__panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.4vw, 34px);
+  padding: clamp(20px, 2.6vw, 32px) clamp(18px, 3vw, 40px);
+  border: 1px solid var(--line);
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* Yellow tick — the same accent the section eyebrows use. */
+.payments__panel::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 42px;
+  height: 3px;
+  background: var(--yellow);
+}
+
+.payments__brand,
+.payments__accepted {
+  flex: none;
+}
+
+/* ---------------------------------------------------------- Logos */
+.payments__logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+}
+
+.payments__logo--mada {
+  height: clamp(24px, 2.7vw, 38px);
+}
+
+.payments__logo--visa {
+  height: clamp(15px, 1.75vw, 24px);
+}
+
+.payments__logo--mastercard {
+  height: clamp(26px, 3.1vw, 44px);
+}
+
+.payments__logo--tabby {
+  height: clamp(14px, 1.5vw, 21px);
+}
+
+.payments__logo--tamara {
+  height: clamp(10px, 1.05vw, 14px);
+}
+
+.payments__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2.2vw, 32px);
+}
+
+.payments__slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Brand plates, kept as the networks publish them. */
+.payments__tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.payments__tile--mint {
+  padding: clamp(7px, 0.85vw, 11px) clamp(11px, 1.4vw, 18px);
+  background: #3eedbf;
+}
+
+.payments__tile--gradient {
+  padding: clamp(8px, 0.95vw, 12px) clamp(11px, 1.4vw, 18px);
+  background: linear-gradient(104deg, #fbe8b8 0%, #f9c4d8 46%, #c9b6f8 100%);
+}
+
+.payments__divider {
+  flex: none;
+  width: 1px;
+  height: clamp(30px, 3.4vw, 48px);
+  background: var(--line);
+}
+
+/* ---------------------------------------------------------- "Accepted here" */
+.payments__accepted {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.payments__accepted-ar {
+  font-family: var(--font-arabic);
+  font-size: clamp(0.9375rem, 1.15vw, 1.125rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.payments__accepted-en {
+  font-family: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(0.5625rem, 0.66vw, 0.6875rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------- Entrance */
+/* The keyframes carry the hidden state, so if the animation never runs the
+   logos are simply visible — content can never get stuck at opacity 0. */
+.payments__panel.is-visible .payments__brand,
+.payments__panel.is-visible .payments__accepted,
+.payments__panel.is-visible .payments__divider,
+.payments__panel.is-visible .payments__slot {
+  animation: payments-rise 0.7s var(--ease-out) both;
+}
+
+.payments__panel.is-visible .payments__brand {
+  animation-delay: 60ms;
+}
+
+.payments__panel.is-visible .payments__divider {
+  animation-delay: 140ms;
+}
+
+.payments__panel.is-visible .payments__accepted {
+  animation-delay: 180ms;
+}
+
+.payments__panel.is-visible .payments__slot:nth-child(1) {
+  animation-delay: 240ms;
+}
+
+.payments__panel.is-visible .payments__slot:nth-child(2) {
+  animation-delay: 300ms;
+}
+
+.payments__panel.is-visible .payments__slot:nth-child(3) {
+  animation-delay: 360ms;
+}
+
+.payments__panel.is-visible .payments__slot:nth-child(4) {
+  animation-delay: 420ms;
+}
+
+@keyframes payments-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------- Responsive */
+@media (max-width: 1080px) {
+  .payments__panel {
+    flex-wrap: wrap;
+    row-gap: clamp(14px, 2.2vw, 20px);
+  }
+
+  .payments__divider {
+    display: none;
+  }
+
+  /* The networks drop to their own row, separated by a hairline rule. */
+  .payments__logos {
+    flex: 1 0 100%;
+    padding-top: clamp(14px, 2.2vw, 20px);
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 560px) {
+  .payments__panel {
+    gap: 12px;
+    padding: 18px 14px;
+  }
+
+  .payments__logos {
+    gap: 12px 16px;
+  }
+
+  .payments__tile--mint,
+  .payments__tile--gradient {
+    padding: 6px 9px;
+    border-radius: 6px;
+  }
+
+  .payments__logo--mada {
+    height: 24px;
+  }
+
+  .payments__accepted-ar {
+    font-size: 0.9375rem;
+  }
+
+  .payments__accepted-en {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .payments__logos {
+    gap: 12px;
+  }
+}
+
+/* ---------------------------------------------------------- Motion / print */
+@media (prefers-reduced-motion: reduce) {
+  .payments__brand,
+  .payments__accepted,
+  .payments__divider,
+  .payments__slot {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@media print {
+  .payments__brand,
+  .payments__accepted,
+  .payments__divider,
+  .payments__slot {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}

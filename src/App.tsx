@@ -5,6 +5,7 @@ import { ProductShowcase } from './components/ProductShowcase';
 import { DiaryDesigns } from './components/DiaryDesigns';
 import { NameplateStands } from './components/NameplateStands';
 import { Services } from './components/Services';
+import { PaymentMethods } from './components/PaymentMethods';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { LanguageProvider, useLanguage } from './i18n/LanguageContext';
@@ -25,6 +26,7 @@ function Site() {
         <DiaryDesigns />
         <NameplateStands />
         <Services />
+        <PaymentMethods />
         <Contact />
       </main>
       <Footer />

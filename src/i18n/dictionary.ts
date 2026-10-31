@@ -147,6 +147,13 @@ const en = {
     cta: 'Contact Us',
   },
 
+  payments: {
+    title: 'Payment Methods',
+    logosLabel: 'Accepted payment methods',
+    acceptedArabic: 'مقبول هنا',
+    acceptedEnglish: 'ACCEPTED HERE',
+  },
+
   contact: {
     eyebrow: '06 / Contact',
     title: 'Contact Us',
@@ -366,6 +373,13 @@ const ar: Dictionary = {
     placeholderText:
       'نعمل على إعداد تفاصيل خدماتنا. في هذه الأثناء، تواصل معنا مباشرة لأي استفسار.',
     cta: 'تواصل معنا',
+  },
+
+  payments: {
+    title: 'طرق الدفع',
+    logosLabel: 'طرق الدفع المقبولة',
+    acceptedArabic: 'مقبول هنا',
+    acceptedEnglish: 'ACCEPTED HERE',
   },
 
   contact: {

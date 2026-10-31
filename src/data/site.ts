@@ -762,3 +762,60 @@ export const services: ServiceEntry[] = [
   },
 ];
 
+/**
+ * Payment methods accepted in store.
+ *
+ * The five logo files are the networks' own artwork, saved as SVG in
+ * public/images/payments/ so they stay sharp at every screen density.
+ * mada is displayed on its own, beside the bilingual "accepted here" line.
+ */
+export const madaLogo = {
+  name: 'mada',
+  src: '/images/payments/mada.svg',
+  width: 796,
+  height: 266,
+} as const;
+
+export interface PaymentLogo {
+  id: 'visa' | 'mastercard' | 'tabby' | 'tamara';
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+  /** Some networks publish their wordmark on a tinted plate; keep it. */
+  tile?: 'mint' | 'gradient';
+}
+
+export const paymentLogos: PaymentLogo[] = [
+  {
+    id: 'visa',
+    name: 'VISA',
+    src: '/images/payments/visa.svg',
+    width: 1000,
+    height: 324,
+  },
+  {
+    id: 'mastercard',
+    name: 'Mastercard',
+    src: '/images/payments/mastercard.svg',
+    width: 999,
+    height: 776,
+  },
+  {
+    id: 'tabby',
+    name: 'Tabby',
+    src: '/images/payments/tabby.svg',
+    width: 335,
+    height: 91,
+    tile: 'mint',
+  },
+  {
+    id: 'tamara',
+    name: 'Tamara',
+    src: '/images/payments/tamara.svg',
+    width: 97,
+    height: 19,
+    tile: 'gradient',
+  },
+];
+
