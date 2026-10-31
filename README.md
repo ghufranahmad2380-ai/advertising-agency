@@ -150,6 +150,11 @@ assets; see [scripts/README.md](scripts/README.md).
   the mobile menu.
 - `prefers-reduced-motion`: the marquee becomes a static, horizontally scrollable
   strip; reveals and hover transforms are disabled.
+- Scroll reveals observe a zero intersection ratio (`threshold: 0`), so a block that
+  is taller than the viewport (the printed-and-branded gallery is about 29,000 px
+  on a phone) still becomes visible. A percentage threshold such as `0.06` can
+  never be reached by such a block, which left every product photograph in that
+  gallery at `opacity: 0` on phones and small laptops.
 - Images are sized by aspect-ratio containers (no layout shift). The hero image is
   eager/high priority; all gallery images are lazy-loaded. Marquee images load
   eagerly so the strip is never blank.

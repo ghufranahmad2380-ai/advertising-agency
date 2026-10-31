@@ -32,7 +32,17 @@ export function Reveal({ children, className = '', delay = 0 }: RevealProps) {
           }
         }
       },
-      { rootMargin: '0px 0px -6% 0px', threshold: 0.06 },
+      /*
+       * `threshold` must stay at 0. A ratio threshold is unreachable for targets
+       * taller than 1/threshold screens: the printed-and-branded product gallery
+       * is ~29,000 px tall on a phone, so at most ~3% of it can ever be inside the
+       * viewport. With the old `threshold: 0.06` the observer never reported an
+       * intersection, `is-visible` was never added, and the whole gallery stayed at
+       * `opacity: 0` — the product photographs were invisible while the heading
+       * above them (a short block) rendered normally. The -6% bottom margin keeps
+       * the entrance animation feeling the same for regular-sized blocks.
+       */
+      { rootMargin: '0px 0px -6% 0px', threshold: 0 },
     );
 
     observer.observe(node);
