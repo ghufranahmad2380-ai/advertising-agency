@@ -144,14 +144,220 @@ export const productImages: LocalizedImage[] = [
 ];
 
 /**
- * Seventy-two photographs supplied in `new photos/`, `new photos 2/` and
- * `new photos 3/`, showing print, branding and promotional work: printed apparel,
- * safety vests, national-day flags and banners, tote bags, awards and trophies,
- * desk sets, notebooks, keychains, tech gifts, corporate gift boxes and print
- * displays. They are displayed directly under the product marquee, before the
- * product catalogue panel.
+ * One hundred and one photographs supplied in `new photos/`, `new photos 2/`,
+ * `new photos 3/` and `new photos 4/`, showing print, branding and promotional
+ * work: printed apparel, safety vests, national-day flags and banners, tote bags,
+ * awards and trophies, desk sets, notebooks, keychains, tech gifts, corporate gift
+ * boxes, signage and print displays. They are displayed directly under the
+ * product marquee, before the product catalogue panel.
+ *
+ * Every entry has a matching slug in `scripts/build-images.py`; the newest folder
+ * is listed first.
  */
 export const printedApparelImages: LocalizedImage[] = [
+  {
+    src: '/images/printed-apparel/beit-wadi-yellow-polo-shirt.jpg',
+    alt: {
+      en: 'Yellow polo shirt mockup shown from the front and back, printed in black with the Beit Wadi home landscaping and projects logo',
+      ar: 'تصميم قميص بولو أصفر من الأمام والخلف، مطبوع باللون الأسود عليه شعار بيت وادي للمساحة المنزلية والمشاريع',
+    },
+  },
+  {
+    src: '/images/printed-apparel/gold-fan-shield-award.jpg',
+    alt: {
+      en: 'Gold fan-shaped award shield with an engraved border, two gold columns topped with crystal spheres and an ornate black and gold base',
+      ar: 'درع ذهبي على شكل مروحة بإطار محفور وعمودين ذهبيين تعلوهما كرتان كريستاليتان وقاعدة مزخرفة سوداء وذهبية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/december-16-commemorative-sash.jpg',
+    alt: {
+      en: 'Maroon commemorative sash printed in gold and white with "DECEMBER 16", Diriyah-style mud-brick buildings and palm trees, worn over a white T-shirt',
+      ar: 'وشاح تذكاري عنابي مطبوع بالذهبي والأبيض بعبارة "DECEMBER 16" ومبانٍ طينية على طراز الدرعية ونخيل، يُلبس فوق قميص أبيض',
+    },
+  },
+  {
+    src: '/images/printed-apparel/red-leather-notebook-gift-box.jpg',
+    alt: {
+      en: 'Black presentation box holding a red leather notebook, a black power bank and a red insulated flask',
+      ar: 'علبة تقديم سوداء تحتوي دفترًا جلديًا أحمر وبطارية متنقلة سوداء وحافظة حرارية حمراء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/red-clock-notebook-gift-box.jpg',
+    alt: {
+      en: 'Black gift box with a red leather envelope-style notebook, a silver cube desk clock and a red insulated flask',
+      ar: 'علبة هدايا سوداء بدفتر جلدي أحمر بتصميم المغلف وساعة مكتبية فضية مكعبة وحافظة حرارية حمراء',
+    },
+  },
+  {
+    src: '/images/printed-apparel/rimah-notebook-thermos-gift-box.jpg',
+    alt: {
+      en: 'Black gift box with a white notebook, a white flask and a red glass ornament, all printed with the RIMAH logo',
+      ar: 'علبة هدايا سوداء بدفتر أبيض وحافظة بيضاء ومجسّم زجاجي أحمر، جميعها مطبوعة بشعار ريما',
+    },
+  },
+  {
+    src: '/images/printed-apparel/savings-jute-tote-bag.jpg',
+    alt: {
+      en: 'Jute tote bag printed with a cartoon sun, two bread characters and an Arabic saving message, labelled as a savings bag',
+      ar: 'حقيبة تسوق من الجوت مطبوعة برسم شمس كرتونية وشخصيتَي خبز ورسالة عربية عن التوفير، وموسومة بأنها حقيبة التوفير',
+    },
+  },
+  {
+    src: '/images/printed-apparel/round-gold-shield-award.jpg',
+    alt: {
+      en: 'Round gold award shield with an engraved floral border, gold side columns and an ornate black and gold base',
+      ar: 'درع ذهبي دائري بإطار زهري محفور وعمودين ذهبيين جانبيين وقاعدة مزخرفة سوداء وذهبية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/anabeeb-jute-tote-bag.jpg',
+    alt: {
+      en: 'Jute tote bag printed with the blue and orange Anabeeb crescent logo and wordmark',
+      ar: 'حقيبة تسوق من الجوت مطبوعة بشعار أنابيب الهلالي باللونين الأزرق والبرتقالي واسم الشركة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/durrat-alalam-polo-shirts.jpg',
+    alt: {
+      en: 'Royal blue polo shirt shown from the front and back, printed in white with the Durrat Alalam elevators logo, services and phone number',
+      ar: 'قميص بولو أزرق ملكي من الأمام والخلف، مطبوع باللون الأبيض بشعار مصاعد درة العالم والخدمات ورقم الهاتف',
+    },
+  },
+  {
+    src: '/images/printed-apparel/sastook-safety-vest.jpg',
+    alt: {
+      en: 'High-visibility yellow safety vest with reflective bands, shown from the front and back and printed with the Sastook contracting logo, phone number and website',
+      ar: 'سترة سلامة صفراء عالية الوضوح بأشرطة عاكسة، من الأمام والخلف، مطبوعة بشعار ساستوك للمقاولات العامة ورقم الهاتف والموقع الإلكتروني',
+    },
+  },
+  {
+    src: '/images/printed-apparel/appreciation-card-design.jpg',
+    alt: {
+      en: 'Thank-you card design with gold Arabic calligraphy above a black panel of appreciation text, marked 26 cm wide',
+      ar: 'تصميم بطاقة شكر بخط عربي ذهبي فوق مساحة سوداء تحمل نص تقدير، بعرض 26 سم',
+    },
+  },
+  {
+    src: '/images/printed-apparel/delta-sports-safety-vest.jpg',
+    alt: {
+      en: 'Neon yellow safety vest with reflective bands, printed with the Delta Sports logo and shown from the front and back',
+      ar: 'سترة سلامة صفراء فسفورية بأشرطة عاكسة، مطبوعة بشعار دلتا الرياضة ومعروضة من الأمام والخلف',
+    },
+  },
+  {
+    src: '/images/printed-apparel/al-habib-birthday-balloon.jpg',
+    alt: {
+      en: 'Red printed balloon reading "HAPPY birthday" with a cartoon boy and girl, confetti stars and the Dr Sulaiman Al Habib medical group logo',
+      ar: 'بالون أحمر مطبوع بعبارة "HAPPY birthday" مع رسم طفل وطفلة ونجوم ملوّنة وشعار المجموعة الطبية د. سليمان الحبيب',
+    },
+  },
+  {
+    src: '/images/printed-apparel/qatif-hospital-cap.jpg',
+    alt: {
+      en: 'White and navy cap printed with the Qatif Central Hospital and Qatif Municipality logos, with the Haddad Sport mark on the brim',
+      ar: 'كاب أبيض وكحلي مطبوع عليه شعارا مستشفى القطيف المركزي وبلدية محافظة القطيف، مع شعار حداد للرياضة على الحافة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/men-prayer-room-sign.jpg',
+    alt: {
+      en: 'Yellow "MEN PRAYER ROOM" sign design with a praying figure, measuring 20 by 15 cm',
+      ar: 'تصميم لوحة صفراء بعبارة مصلى الرجال مع رسم لشخص يصلّي، بمقاس 20 × 15 سم',
+    },
+  },
+  {
+    src: '/images/printed-apparel/education-ministry-booth.jpg',
+    alt: {
+      en: 'Design mockup of an exhibition booth in blue and teal with the Ministry of Education logo, a reception counter, a screen and wall lighting',
+      ar: 'تصميم ثلاثي الأبعاد لجناح معرض باللونين الأزرق والفيروزي يحمل شعار وزارة التعليم، مع منصة استقبال وشاشة وإضاءة على الجدران',
+    },
+  },
+  {
+    src: '/images/printed-apparel/black-steel-tumbler.jpg',
+    alt: {
+      en: 'Matte black insulated tumbler with a steel collar and a black lid',
+      ar: 'كوب معزول أسود مطفي بطوق من الستيل وغطاء أسود',
+    },
+  },
+  {
+    src: '/images/printed-apparel/beach-jeep-tote-bag.jpg',
+    alt: {
+      en: 'White non-woven tote bag printed with a red off-road jeep loaded with camping gear on a beach with palm trees',
+      ar: 'حقيبة تسوق بيضاء غير منسوجة مطبوعة برسم سيارة دفع رباعي حمراء محمّلة بأدوات التخييم على شاطئ مع نخيل',
+    },
+  },
+  {
+    src: '/images/printed-apparel/spare-parts-t-shirt.jpg',
+    alt: {
+      en: 'Red T-shirt printed in white on the back with a spare-parts company logo, the Honda wordmark and a phone number',
+      ar: 'قميص أحمر مطبوع على الظهر باللون الأبيض بشعار مؤسسة لقطع الغيار وعبارة هوندا ورقم هاتف',
+    },
+  },
+  {
+    src: '/images/printed-apparel/mdc-contracting-vest.jpg',
+    alt: {
+      en: 'Royal blue reflective vest printed on the back with the MDC for Contracting and Modern Architecture Dar Co. logo',
+      ar: 'سترة عاكسة زرقاء ملكية مطبوعة على الظهر بشعار MDC للمقاولات وشركة دار الهندسة الحديثة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/national-day-95-scarf.jpg',
+    alt: {
+      en: 'Golden scarf printed with Saudi National Day 95 lettering, a dotted pattern, the Ministry of Interior traffic emblem and an Arabic hashtag',
+      ar: 'وشاح ذهبي مطبوع بعبارة اليوم الوطني السعودي 95 ونقاط ملوّنة وشعار المرور بوزارة الداخلية وهاشتاق عربي',
+    },
+  },
+  {
+    src: '/images/printed-apparel/bahrain-graduation-sash.jpg',
+    alt: {
+      en: 'Navy graduation sash bordered in gold and red, printed with the Bahraini crest, the Manama skyline and Arabic calligraphy',
+      ar: 'وشاح تخرج كحلي بإطار ذهبي وأحمر، مطبوع عليه الشعار البحريني وأفق المنامة وخط عربي',
+    },
+  },
+  {
+    src: '/images/printed-apparel/university-hospital-vest.jpg',
+    alt: {
+      en: 'Red reflective vest printed on the back with the King Fahad University Hospital and Al Madinah Medical Academy logos',
+      ar: 'سترة عاكسة حمراء مطبوعة على الظهر بشعار مستشفى الملك فهد الجامعي والمدينة الطبية الأكاديمية',
+    },
+  },
+  {
+    src: '/images/printed-apparel/mewa-green-tumbler.jpg',
+    alt: {
+      en: 'Green insulated tumbler with a clear lid, printed in white with the Ministry of Environment, Water and Agriculture logo',
+      ar: 'كوب معزول أخضر بغطاء شفاف، مطبوع باللون الأبيض بشعار وزارة البيئة والمياه والزراعة',
+    },
+  },
+  {
+    src: '/images/printed-apparel/printed-ballpoint-pens.jpg',
+    alt: {
+      en: 'Eight ballpoint pens in white, grey, black, navy, blue, green, orange and red, each printed with a client logo and finished with a steel tip',
+      ar: 'ثمانية أقلام جاف بالأبيض والرمادي والأسود والكحلي والأزرق والأخضر والبرتقالي والأحمر، مطبوع على كل منها شعار عميل ورأس من الستيل',
+    },
+  },
+  {
+    src: '/images/printed-apparel/adjustable-phone-stand.jpg',
+    alt: {
+      en: 'Black aluminium desk stand with a mesh back for holding a phone or tablet, adjustable at three joints',
+      ar: 'حامل مكتبي أسود من الألومنيوم بظهر شبكي لحمل الهاتف أو الجهاز اللوحي، قابل للتعديل من ثلاث مفاصل',
+    },
+  },
+  {
+    src: '/images/printed-apparel/ayurveda-promotion-counter.jpg',
+    alt: {
+      en: 'Design mockup of a printed pop-up promotion counter for Ayurveda, with a branded header, a product graphic and its measurements',
+      ar: 'تصميم تجريبي لمنصة عرض منبثقة مطبوعة لأيورفيدا، بلوحة علوية تحمل الشعار وصورة للمنتجات وبيان الأبعاد',
+    },
+  },
+  {
+    src: '/images/printed-apparel/notebook-and-pen-collection.jpg',
+    alt: {
+      en: 'Stack of eight softcover notebooks in blue, grey, orange, green, red, light grey and black beside a black pen with gold trim',
+      ar: 'كومة من ثمانية دفاتر بغلاف ناعم بالأزرق والرمادي والبرتقالي والأخضر والأحمر والرمادي الفاتح والأسود بجانب قلم أسود بزخارف ذهبية',
+    },
+  },
   {
     src: '/images/printed-apparel/armed-forces-nursing-award.jpg',
     alt: {

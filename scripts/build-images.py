@@ -7,10 +7,11 @@ Inputs (kept in the project root, outside public/):
   - "new photos/"            WhatsApp photographs of printed apparel and print work
   - "new photos 2/"          further photographs of print, branding and promo work
   - "new photos 3/"          corporate gift, award and branded-merchandise mockups
+  - "new photos 4/"          printed apparel, signage, gift sets and award mockups
 
 Outputs:
   - public/images/products/*.jpg         10 selected product photographs (crops)
-  - public/images/printed-apparel/*.jpg  72 printed / branded product photographs
+  - public/images/printed-apparel/*.jpg  101 printed / branded product photographs
   - public/images/diary-designs/*.jpg    every unique diary design (30)
   - public/images/nameplate-stands/*.jpg all unique nameplate photographs (26)
   - public/images/site/*.jpg             hero / about / diary section imagery
@@ -32,6 +33,7 @@ NAMEPLATE_DIR = os.path.join(ROOT, "nameplate stand")
 NEW_PHOTOS_DIR = os.path.join(ROOT, "new photos")
 NEW_PHOTOS_2_DIR = os.path.join(ROOT, "new photos 2")
 NEW_PHOTOS_3_DIR = os.path.join(ROOT, "new photos 3")
+NEW_PHOTOS_4_DIR = os.path.join(ROOT, "new photos 4")
 
 # (PDF page number, crop box in source pixels, output slug)
 PRODUCT_CROPS = [
@@ -139,6 +141,44 @@ PRINTED_PHOTOS_3 = [
     ("WhatsApp Image 2026-10-30 at 10.40.58 PM (4).jpeg", "gold-horse-gift-box"),
     ("WhatsApp Image 2026-10-30 at 10.40.58 PM.jpeg", "tall-crystal-column-award"),
 ]
+# (source file name in "new photos 4/", output slug)
+#
+# Two mockups appear twice in this folder — the Beit Wadi yellow polo shirt
+# (2.00.48 (1) × 2.00.50 (3)) and the gold fan-shaped award (2.00.48 (2) ×
+# 2.00.52) — so only one copy of each is published, as with "new photos 3/".
+PRINTED_PHOTOS_4 = [
+    ("WhatsApp Image 2026-11-01 at 2.00.48 PM (1).jpeg", "beit-wadi-yellow-polo-shirt"),
+    ("WhatsApp Image 2026-11-01 at 2.00.48 PM (2).jpeg", "gold-fan-shield-award"),
+    ("WhatsApp Image 2026-11-01 at 2.00.48 PM.jpeg", "december-16-commemorative-sash"),
+    ("WhatsApp Image 2026-11-01 at 2.00.49 PM (1).jpeg", "red-leather-notebook-gift-box"),
+    ("WhatsApp Image 2026-11-01 at 2.00.49 PM (2).jpeg", "red-clock-notebook-gift-box"),
+    ("WhatsApp Image 2026-11-01 at 2.00.49 PM (3).jpeg", "rimah-notebook-thermos-gift-box"),
+    ("WhatsApp Image 2026-11-01 at 2.00.49 PM (4).jpeg", "savings-jute-tote-bag"),
+    ("WhatsApp Image 2026-11-01 at 2.00.49 PM.jpeg", "round-gold-shield-award"),
+    ("WhatsApp Image 2026-11-01 at 2.00.50 PM (1).jpeg", "anabeeb-jute-tote-bag"),
+    ("WhatsApp Image 2026-11-01 at 2.00.50 PM (2).jpeg", "durrat-alalam-polo-shirts"),
+    ("WhatsApp Image 2026-11-01 at 2.00.50 PM (4).jpeg", "sastook-safety-vest"),
+    ("WhatsApp Image 2026-11-01 at 2.00.50 PM (5).jpeg", "appreciation-card-design"),
+    ("WhatsApp Image 2026-11-01 at 2.00.50 PM (6).jpeg", "delta-sports-safety-vest"),
+    ("WhatsApp Image 2026-11-01 at 2.00.50 PM.jpeg", "al-habib-birthday-balloon"),
+    ("WhatsApp Image 2026-11-01 at 2.00.51 PM (1).jpeg", "qatif-hospital-cap"),
+    ("WhatsApp Image 2026-11-01 at 2.00.51 PM (2).jpeg", "men-prayer-room-sign"),
+    ("WhatsApp Image 2026-11-01 at 2.00.51 PM (3).jpeg", "education-ministry-booth"),
+    ("WhatsApp Image 2026-11-01 at 2.00.51 PM (4).jpeg", "black-steel-tumbler"),
+    ("WhatsApp Image 2026-11-01 at 2.00.51 PM (5).jpeg", "beach-jeep-tote-bag"),
+    ("WhatsApp Image 2026-11-01 at 2.00.51 PM.jpeg", "spare-parts-t-shirt"),
+    ("WhatsApp Image 2026-11-01 at 2.00.52 PM (1).jpeg", "mdc-contracting-vest"),
+    ("WhatsApp Image 2026-11-01 at 2.00.52 PM (2).jpeg", "national-day-95-scarf"),
+    ("WhatsApp Image 2026-11-01 at 2.00.52 PM (3).jpeg", "bahrain-graduation-sash"),
+    ("WhatsApp Image 2026-11-01 at 2.00.52 PM (4).jpeg", "university-hospital-vest"),
+    ("WhatsApp Image 2026-11-01 at 2.00.52 PM (5).jpeg", "mewa-green-tumbler"),
+    ("WhatsApp Image 2026-11-01 at 2.00.52 PM (6).jpeg", "printed-ballpoint-pens"),
+    ("WhatsApp Image 2026-11-01 at 2.00.52 PM (7).jpeg", "adjustable-phone-stand"),
+    ("WhatsApp Image 2026-11-01 at 2.00.53 PM (1).jpeg", "ayurveda-promotion-counter"),
+    ("WhatsApp Image 2026-11-01 at 2.00.53 PM.jpeg", "notebook-and-pen-collection"),
+]
+
+
 
 
 def save_jpeg(image: Image.Image, path: str, max_side: int, quality: int = 82) -> None:
@@ -264,6 +304,7 @@ def build_printed_apparel() -> None:
         (NEW_PHOTOS_DIR, PRINTED_PHOTOS),
         (NEW_PHOTOS_2_DIR, PRINTED_PHOTOS_2),
         (NEW_PHOTOS_3_DIR, PRINTED_PHOTOS_3),
+        (NEW_PHOTOS_4_DIR, PRINTED_PHOTOS_4),
     )
 
     total = 0
