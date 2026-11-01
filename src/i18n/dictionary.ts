@@ -12,7 +12,7 @@ const en = {
   meta: {
     title: 'Gift Occasions | Advertising, Printing & Promotional Gifts in Dammam',
     description:
-      'Gift Occasions | مناسبات الهدايا — advertising, printing and promotional gifts in Dammam, Saudi Arabia. Explore our product catalogue, diary designs and custom desk nameplate stands.',
+      'Gift Occasions | شركة هدية المناسبات للدعاية والإعلان — advertising, printing and promotional gifts in Dammam, Saudi Arabia. Explore our product catalogue, diary designs and custom desk nameplate stands.',
   },
 
   common: {
@@ -27,9 +27,9 @@ const en = {
 
   brand: {
     name: 'Gift Occasions',
-    nativeName: 'مناسبات الهدايا',
+    nativeName: 'شركة هدية المناسبات للدعاية والإعلان',
     discipline: 'Advertising · Printing · Gifts',
-    fullName: 'Gift Occasions | مناسبات الهدايا',
+    fullName: 'Gift Occasions | شركة هدية المناسبات للدعاية والإعلان',
     location: 'Dammam, Saudi Arabia',
   },
 
@@ -224,7 +224,7 @@ const en = {
   },
 
   footer: {
-    tagline: 'Gift Occasions | مناسبات الهدايا',
+    tagline: 'Gift Occasions | شركة هدية المناسبات للدعاية والإعلان',
     description:
       'Advertising, printing and promotional gifts in Dammam, Saudi Arabia. Tailored solutions for companies, events and marketing campaigns.',
     navigate: 'Navigate',
@@ -242,9 +242,9 @@ export type Dictionary = typeof en;
 
 const ar: Dictionary = {
   meta: {
-    title: 'مناسبات الهدايا | دعاية وإعلان وطباعة وهدايا ترويجية في الدمام',
+    title: 'شركة هدية المناسبات للدعاية والإعلان | دعاية وإعلان وطباعة وهدايا ترويجية في الدمام',
     description:
-      'مناسبات الهدايا | Gift Occasions — شركة دعاية وإعلان وطباعة وهدايا ترويجية في الدمام، المملكة العربية السعودية. تصفّح كتالوج المنتجات وتصاميم الدفاتر وحوامل أسماء المكاتب.',
+      'شركة هدية المناسبات للدعاية والإعلان | Gift Occasions — شركة دعاية وإعلان وطباعة وهدايا ترويجية في الدمام، المملكة العربية السعودية. تصفّح كتالوج المنتجات وتصاميم الدفاتر وحوامل أسماء المكاتب.',
   },
 
   common: {
@@ -253,14 +253,14 @@ const ar: Dictionary = {
     opensInNewTab: 'يفتح في علامة تبويب جديدة',
     catalogueLinkNote: 'كتالوج PDF · يفتح في علامة تبويب جديدة',
     requiredFields: 'الحقول المعلّمة بـ * مطلوبة.',
-    whatsappMessage: 'مرحبًا مناسبات الهدايا، أرغب في الاستفسار عن منتجاتكم وخدماتكم.',
+    whatsappMessage: 'مرحبًا شركة هدية المناسبات للدعاية والإعلان، أرغب في الاستفسار عن منتجاتكم وخدماتكم.',
   },
 
   brand: {
-    name: 'مناسبات الهدايا',
+    name: 'شركة هدية المناسبات للدعاية والإعلان',
     nativeName: 'Gift Occasions',
     discipline: 'دعاية · طباعة · هدايا',
-    fullName: 'Gift Occasions | مناسبات الهدايا',
+    fullName: 'Gift Occasions | شركة هدية المناسبات للدعاية والإعلان',
     location: 'الدمام، المملكة العربية السعودية',
   },
 
@@ -286,9 +286,9 @@ const ar: Dictionary = {
 
   hero: {
     eyebrow: 'الدمام، المملكة العربية السعودية',
-    title: 'مناسبات الهدايا',
+    title: 'شركة هدية المناسبات للدعاية والإعلان',
     intro:
-      'في Gift Occasions | مناسبات الهدايا، نحوّل الأفكار إلى هدايا مبتكرة ومطبوعات مميزة تعبّر عن هوية علامتك التجارية وتترك أثرًا يدوم.',
+      'في Gift Occasions | شركة هدية المناسبات للدعاية والإعلان، نحوّل الأفكار إلى هدايا مبتكرة ومطبوعات مميزة تعبّر عن هوية علامتك التجارية وتترك أثرًا يدوم.',
     primaryCta: 'استكشف المنتجات',
     secondaryCta: 'تواصل عبر واتساب',
     visualTag: 'من مجموعة منتجاتنا',
@@ -301,7 +301,7 @@ const ar: Dictionary = {
     eyebrow: '01 / من نحن',
     title: 'من نحن',
     paragraphs: [
-      'في Gift Occasions | مناسبات الهدايا، نحوّل الأفكار إلى هدايا مبتكرة ومطبوعات مميزة تعبّر عن هوية علامتك التجارية وتترك أثرًا يدوم.',
+      'في Gift Occasions | شركة هدية المناسبات للدعاية والإعلان، نحوّل الأفكار إلى هدايا مبتكرة ومطبوعات مميزة تعبّر عن هوية علامتك التجارية وتترك أثرًا يدوم.',
       'نحن شركة متخصصة في الدعاية والإعلان والطباعة والهدايا الترويجية، مقرّنا مدينة الدمام في المملكة العربية السعودية. نقدّم حلولًا مخصّصة للشركات والمؤسسات، تناسب الفعاليات والمناسبات والحملات التسويقية.',
       'تشمل خدماتنا الطباعة بتقنيات DTF وUV والسلك سكرين، إلى جانب أعمال التخصيص بالليزر، لنمنح كل منتج طابعًا يعكس هوية علامتك التجارية.',
       'نؤمن بأن التميّز يكمن في التفاصيل؛ لذلك نحرص على فهم احتياجاتك والجمع بين الإبداع ودقة التنفيذ، لتصبح كل هدية رسالة تقدير، وكل مطبوعة فرصة لتعزيز حضورك.',
@@ -370,7 +370,7 @@ const ar: Dictionary = {
     intro:
       'من تنفيذ المنحوتات الأكريليكية والهدايا الترويجية إلى الطباعة وخدمات الليزر، هذه هي الخدمات التي نقدّمها.',
     inquire: 'استفسار عبر واتساب',
-    whatsappMessage: 'مرحبًا مناسبات الهدايا، أرغب في الاستفسار عن {service}.',
+    whatsappMessage: 'مرحبًا شركة هدية المناسبات للدعاية والإعلان، أرغب في الاستفسار عن {service}.',
     placeholderTitle: 'تفاصيل الخدمات قريبًا',
     placeholderText:
       'نعمل على إعداد تفاصيل خدماتنا. في هذه الأثناء، تواصل معنا مباشرة لأي استفسار.',
@@ -443,7 +443,7 @@ const ar: Dictionary = {
         message: 'يرجى كتابة رسالتك (10 أحرف على الأقل).',
       },
       whatsappMessage: {
-        heading: 'استفسار جديد من موقع Gift Occasions | مناسبات الهدايا',
+        heading: 'استفسار جديد من موقع Gift Occasions | شركة هدية المناسبات للدعاية والإعلان',
         name: 'الاسم',
         phone: 'رقم الهاتف',
         email: 'البريد الإلكتروني',
@@ -454,7 +454,7 @@ const ar: Dictionary = {
   },
 
   footer: {
-    tagline: 'Gift Occasions | مناسبات الهدايا',
+    tagline: 'Gift Occasions | شركة هدية المناسبات للدعاية والإعلان',
     description:
       'دعاية وإعلان وطباعة وهدايا ترويجية في الدمام، المملكة العربية السعودية. حلول مخصّصة للشركات والفعاليات والحملات التسويقية.',
     navigate: 'التنقل',

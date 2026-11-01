@@ -1,4 +1,4 @@
-# Gift Occasions | مناسبات الهدايا
+# Gift Occasions | شركة هدية المناسبات للدعاية والإعلان
 
 Bilingual English / Arabic website for **Gift Occasions**, an advertising,
 printing and promotional-gifts company in Dammam, Saudi Arabia.
