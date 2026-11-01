@@ -144,7 +144,7 @@ export const productImages: LocalizedImage[] = [
 ];
 
 /**
- * One hundred and one photographs supplied in `new photos/`, `new photos 2/`,
+ * Ninety-nine photographs supplied in `new photos/`, `new photos 2/`,
  * `new photos 3/` and `new photos 4/`, showing print, branding and promotional
  * work: printed apparel, safety vests, national-day flags and banners, tote bags,
  * awards and trophies, desk sets, notebooks, keychains, tech gifts, corporate gift
@@ -839,20 +839,6 @@ export const printedApparelImages: LocalizedImage[] = [
     alt: {
       en: 'Blue and black notebooks printed with the National Water Company and Alkhorayef Water & Power Technologies logos',
       ar: 'دفتران أزرق وأسود مطبوع عليهما شعارا شركة المياه الوطنية وشركة الخريف لتقنية المياه والطاقة',
-    },
-  },
-  {
-    src: '/images/printed-apparel/padel-tournament-backdrop.jpg',
-    alt: {
-      en: 'Large printed backdrop for the URD3D Padel Tournament at Padel Scope, Khobar–Dammam',
-      ar: 'خلفية مطبوعة كبيرة لبطولة URD3D للبادل في بادل سكوب بالخبر – الدمام',
-    },
-  },
-  {
-    src: '/images/printed-apparel/exhibition-counter-design.jpg',
-    alt: {
-      en: 'Design mockup of a printed exhibition counter and backdrop, marked with its measurements',
-      ar: 'تصميم تجريبي لمنصة عرض وخلفية مطبوعة مع بيان الأبعاد',
     },
   },
   {

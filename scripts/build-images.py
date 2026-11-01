@@ -11,7 +11,7 @@ Inputs (kept in the project root, outside public/):
 
 Outputs:
   - public/images/products/*.jpg         10 selected product photographs (crops)
-  - public/images/printed-apparel/*.jpg  101 printed / branded product photographs
+  - public/images/printed-apparel/*.jpg  99 printed / branded product photographs
   - public/images/diary-designs/*.jpg    every unique diary design (30)
   - public/images/nameplate-stands/*.jpg all unique nameplate photographs (26)
   - public/images/site/*.jpg             hero / about / diary section imagery
@@ -86,8 +86,6 @@ PRINTED_PHOTOS_2 = [
     ("WhatsApp Image 2026-10-29 at 9.19.10 PM (3).jpeg", "enamel-keychain"),
     ("WhatsApp Image 2026-10-29 at 9.19.13 PM (2).jpeg", "alpha-notebook-pen"),
     ("WhatsApp Image 2026-10-29 at 9.19.13 PM (3).jpeg", "national-water-notebooks"),
-    ("WhatsApp Image 2026-10-29 at 9.13.18 PM.jpeg", "padel-tournament-backdrop"),
-    ("WhatsApp Image 2026-10-29 at 9.19.13 PM.jpeg", "exhibition-counter-design"),
     ("WhatsApp Image 2026-10-29 at 9.19.12 PM (2).jpeg", "breast-cancer-awareness-card"),
 ]
 
